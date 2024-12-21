@@ -7,12 +7,11 @@ body {
     
    }
 
-
 .home h1{
     font-size: 200px;
     text-align: center;
     font-family: 'Poppins', sans-serif;
-    padding-top: 100px;
+    
     color: white;
 }
 .home h3{
@@ -20,13 +19,14 @@ body {
     text-align: center;
     color: white;
     font-family: 'Poppins', sans-serif;
+    margin-top: -120px;
 }
 .Buttons{
       display: grid;
       grid-template-columns: repeat(auto-fit,minmax(25rem,0fr));
       gap:-10rem;
       margin-left: 40px;
-      padding-top: 50px;
+      
 }
 .Buttons button{
     font-family: 'Poppins', sans-serif;;

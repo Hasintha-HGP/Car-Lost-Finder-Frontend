@@ -2,9 +2,20 @@ import './About.css';
 import Add from './../Images/Home/Add.jpg'
 import Recent from './../Images/Home/Recent.jpeg'
 import Update from './../Images/Home/Up2.png'
+<<<<<<< Updated upstream
 function About(){
     return(
     <body className='about'>
+=======
+import Navi from './../Navigation/navi'
+
+function About(){
+    return(
+    <>
+    <Navi/>
+    <div className='about'>
+        
+>>>>>>> Stashed changes
         <div className='aboutmain'>
             <h1><ins><b>WHAT WE OFFER</b></ins></h1>
             <p><b>WELCOME TO OUR CAR FINDING SYSTEM! WE OFFER A RELIABLE PLATFOAM FOR USERS TO</b></p>

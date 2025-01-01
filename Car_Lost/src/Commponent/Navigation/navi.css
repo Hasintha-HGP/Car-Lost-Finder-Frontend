@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+.navbar{
+   background-color: black;
+   color: white;
+   height: 150px;
+   opacity: 0.85;
+   border:solid black;
+}
+.navidiv{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.name{
+    font-size: 50px;
+    font-weight: 600;
+    margin-top: 10px;
+
+}
+.navidiv li {
+    
+    list-style: none;
+    display: inline-block;
+    font-size: 25px;
+    font-weight: bold;
+    margin-right: 25px;
+}
+.navidiv li a{
+    color: white;
+    border: none;
+    border-radius: 17px;
+    
+    
+}
+.navidiv li a:hover{
+    color: black;
+    background-color: aqua;
+    
+}
+

@@ -16,9 +16,13 @@ function App() {
   return (
     <>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       <Home/>
 =======
       <About/>
+>>>>>>> Stashed changes
+=======
+      <Home/>
 >>>>>>> Stashed changes
     </>
   )

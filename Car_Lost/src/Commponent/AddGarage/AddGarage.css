@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
 /* Base Styles */
-.wrapper {
+body {
   font-family: 'Poppins', sans-serif;
   background: url('/src/assets/image1111.jpg') no-repeat center center fixed; /* Add background image */
   background-size: cover;

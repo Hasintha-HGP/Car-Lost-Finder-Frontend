@@ -6,13 +6,14 @@ import { Route, Routes } from 'react-router-dom';
 import Login from './Commponent/Login/Login.jsx';
 import AddCar from './Commponent/AddCar/AddCar.jsx';
 import AddGarage from './Commponent/AddGarage/AddGarage.jsx';
+import Footer from './Commponent/Footer/Footer.jsx';
 
 function App() {
   
 
   return (
     <>
-      <AddCar/>
+      <Footer/>
     </>
   )
 }

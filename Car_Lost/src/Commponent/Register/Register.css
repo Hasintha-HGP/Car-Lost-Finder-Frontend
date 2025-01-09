@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.RegisterMain{
+    background: url('../Images/Home/homeorg.jpg') no-repeat center center fixed;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f9f9f9;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  .RegisterMain2 {
+    width: 100%;
+    max-width: 700px;
+    background: rgba(255, 255, 255, 0.1); 
+    backdrop-filter: blur(12px);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  .register-form{
+    margin: 50px;
+  }
+  
+  .RegisterMain2:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+  }
+  .RegisterMain2 h1{
+    text-align: center;
+    color: white;
+  }
+ 
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: white;
+  }
+  
+  .form-group input,
+  .form-group select {
+    width: 100%;
+    padding: 10px;
+    color: white;
+    background-color:rgba(255, 255, 255, 0.1) ;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  .form-group option{
+    color: black;
+  }
+  .form-group input:required:invalid,
+  .form-group select:required:invalid {
+    border-color: rgb(68, 153, 187);
+  }
+  
+  .form-group input:required:invalid:focus,
+  .form-group select:required:invalid:focus {
+    outline: none;
+    border-color: rgb(15, 50, 58);
+    box-shadow: 0 0 5px rgb(7, 76, 84);
+  }
+  
+  .form-group .required::after {
+    content: " *";
+    color: rgb(239, 236, 236);
+    font-weight: bold;
+  }
+  
+  .error-message {
+    color: rgb(239, 236, 236);
+    font-size: 12px;
+    margin-top: 5px;
+  }
+  
+  .submit-button3 {
+    background-color: #84b5ea;
+    color: black;
+    border: none;
+    
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  .submit-button3:hover {
+    background-color: #04707e;
+    color: white;
+  }
+  
+  

@@ -1,0 +1,101 @@
+.profile{
+    background: linear-gradient(to left,black,#28282B);
+    height: 150%;
+    width: 300px;
+}
+.profileimg .imgpro{
+    height: 180px;
+    width: 180px;
+    border-radius: 50%;
+    margin-top: 50px;
+    margin-left: 210px;
+}
+.aboutmain1{
+    margin-left: 500px;
+    margin-top: -200px;
+    width:300px;
+}
+.aboutmain1 h1{
+    font-size: 75px;
+}
+.aboutmain1 p{
+    font-size: 25px;
+}
+.aboutdetails {
+    
+    
+    margin-left: 600px;
+    margin-top: 70px;
+    width: 500px;
+    z-index: -1;
+    border-radius: 10px;
+    
+}
+.aboutdetails td{
+    text-align: left;
+    white-space: nowrap;
+    font-size:30px;
+    font-weight: 50;
+    color: white;
+}
+.aboutdetails table{
+    background-color: black;
+    position: relative;
+    opacity: 0.95;
+    
+    width: 700px;
+    background-origin: padding-box;
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    
+    
+}
+.details1 {
+    margin-top: 60px;
+    margin-left: 300px;
+}
+.details2 {
+    margin-top: -100px;
+    margin-left: 700px;
+}
+.details1 button{
+    height: 100px;
+    width: 300px;
+    background-color:rgba(93, 106, 106, 0.658);
+    text-align: center;
+    margin-left: 300px;
+    border-radius: 80px;
+    border-top-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    
+    font-size: 30px;
+    border: none;
+}
+.details2 button{
+    height: 100px;
+    width: 300px;
+    background-color: rgba(93, 106, 106, 0.658);
+    text-align: center;
+    margin-left: 300px;
+    border-radius: 80px;
+    border: none;
+    font-size: 30px;
+    border-top-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+.edit{
+    margin-top: 10px;
+}
+.edit button{
+    height: 35px;
+    width: 100px;
+    border-radius: 30px;
+    box-shadow: #28282B;
+    border: solid black 3px;
+    font-size: 22px;
+}
+.edit button:hover{
+    color:white;
+    background-color: blue;
+    
+}

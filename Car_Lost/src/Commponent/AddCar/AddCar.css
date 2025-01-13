@@ -2,7 +2,7 @@
 
 
   /* Base Styles */
-  body {
+  .wrapper {
     font-family: 'Poppins', sans-serif; /* Use Poppins font */
     background: url('/src/assets/image1111.jpg') no-repeat center center fixed; /* Add background image */
     background-size: cover; /* Ensure the image covers the entire viewport */

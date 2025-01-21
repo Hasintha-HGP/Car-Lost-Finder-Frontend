@@ -1,10 +1,8 @@
-/* Import Google Font: Poppins */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
-/* Base Styles */
 .wrapper {
   font-family: 'Poppins', sans-serif;
-  background: url('/src/assets/image1111.jpg') no-repeat center center fixed; /* Add background image */
+  background: url('/src/assets/image1111.jpg') no-repeat center center fixed; 
   background-size: cover;
   color: #ffffff;
   margin: 0;
@@ -15,25 +13,22 @@
   height: 100vh;
 }
 
-/* Form Container */
 .form-container {
   width: 100%;
   max-width: 500px;
-  background: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
-  backdrop-filter: blur(12px); /* Frosted glass effect */
+  background: rgba(255, 255, 255, 0.1); 
+  backdrop-filter: blur(12px); 
   border-radius: 15px;
   padding: 30px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Hover Effect on Form */
 .form-container:hover {
   transform: translateY(-5px);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
 }
 
-/* Form Heading */
 h2 {
   text-align: center;
   margin-bottom: 20px;
@@ -44,14 +39,12 @@ h2 {
   font-weight: 600;
 }
 
-/* Form */
 .form {
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
 
-/* Form Group */
 .form-group {
   display: flex;
   flex-direction: column;
@@ -63,7 +56,6 @@ label {
   color: #cccccc;
 }
 
-/* Input Fields */
 input {
   padding: 10px;
   border: none;
@@ -81,7 +73,6 @@ input:focus {
   box-shadow: 0 0 8px rgba(0, 123, 255, 0.8);
 }
 
-/* Submit Button */
 .submit-button {
   padding: 12px 20px;
   background-color: #66a4e6;

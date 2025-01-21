@@ -16,7 +16,7 @@ function AddCar() {
   const handleChange = (e) => {
     const { name, value, files } = e.target;
     if (name === "carPhotos") {
-      setFormData({ ...formData, [name]: files }); // Handle file upload
+      setFormData({ ...formData, [name]: files }); 
     } else {
       setFormData({ ...formData, [name]: value });
     }
@@ -25,7 +25,6 @@ function AddCar() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formData);
-    // Add your form submission logic here
   };
 
   return (

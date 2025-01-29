@@ -8,6 +8,7 @@ import Profile from './Commponent/Profile/Profile.jsx';
 import Comment from './Commponent/Comment section/Comment.jsx';
 import AddCar from './Commponent/AddCar/AddCar.jsx';
 import AddGarage from './Commponent/AddGarge/AddGarge.jsx';
+import Notification from './Commponent/Notification/Notification.jsx';
 
 import './App.css'
 import { Route, Routes } from 'react-router-dom';
@@ -31,6 +32,7 @@ function App() {
         <Route path='/Addcar' element={<AddCar/>} />
         <Route path='/AddGarage' element={<AddGarage/>} />
         <Route path='/Logout' element={<Home/>} />
+        <Route path='/notification' element={<Notification/>} />
         
        </Routes>
     </>

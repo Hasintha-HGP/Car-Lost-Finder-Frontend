@@ -22,12 +22,12 @@ function App() {
   return (
     <>
        <Routes>
-        <Route path='/' element={<Home/>} />
+        <Route path='/' element={<About/>} />
         <Route path='/Register' element={<Register/>} />
         <Route path='/Login' element={<Login/>} />
         <Route path='/Myprofile' element={<Profile/>} />
         <Route path='/HomePage' element={<About/>} />
-        <Route path='/EditProfile' element={<Register/>} />
+        <Route path='/EditProfile' element={<Update/>} />
         <Route path='/Addcar' element={<AddCar/>} />
         <Route path='/AddGarage' element={<AddGarage/>} />
         <Route path='/Logout' element={<Home/>} />

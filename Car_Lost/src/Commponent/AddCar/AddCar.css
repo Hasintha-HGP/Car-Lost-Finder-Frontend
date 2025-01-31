@@ -18,16 +18,23 @@
 
 
 .form-container {
-  width: 100%;
-  max-width: 500px;
+  width: 700px;
+  
   background: rgba(255, 255, 255, 0.1); 
   backdrop-filter: blur(12px);
   border-radius: 15px;
   padding: 30px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  margin-top: 30px;
-  margin-bottom: 30px;
+  margin-top: 78px;
+  margin-bottom: 54px;
+}
+.form-container  table{
+  width: 600px;
+  margin-left: 20px;
+}
+.form-container  table td{
+  width: 250px;
 }
 
 

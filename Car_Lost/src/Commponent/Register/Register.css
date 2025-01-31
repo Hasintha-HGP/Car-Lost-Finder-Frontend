@@ -15,7 +15,8 @@
   .RegisterMain2 {
     width: 100%;
     max-width: 700px;
-    background: rgba(255, 255, 255, 0.1); 
+    background: #353935; 
+    opacity: 0.9;
     backdrop-filter: blur(12px);
     border-radius: 15px;
     padding: 30px;

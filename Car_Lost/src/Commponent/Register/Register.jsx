@@ -12,13 +12,38 @@ const RegisterForm = () => {
     city: '',
     phone: '',
     email: '',
+    photo: '',
     password: '',
     confirmPassword: ''
   });
 
   const [errors, setErrors] = useState({});
   const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
-
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+  
+    if (file) {
+      // Check if the file is a .jpg or .jpeg
+      const fileType = file.type;
+      if (fileType === 'image/jpeg') {
+        const reader = new FileReader();
+        reader.onloadend = () => {
+          setFormData({
+            ...formData,
+            photo: reader.result // Store the base64 image data
+          });
+        };
+        reader.readAsDataURL(file); // Reads the image file as base64
+      } else {
+        // If the file is not .jpg or .jpeg, set an error message
+        alert('Only JPG/JPEG files are allowed');
+        setFormData({
+          ...formData,
+          photo: '' // Clear any previous image
+        });
+      }
+    }
+  };
   const validate = () => {
     let errors = {};
     
@@ -117,6 +142,10 @@ const RegisterForm = () => {
       <div className="form-group">
         <label className="required">Email:</label>
         <input type="email" name="email" value={formData.email} onChange={handleChange} required />
+      </div>
+      <div className="form-group">
+        <label className="required">Add Your Photo:</label>
+        <input type="file" name="file" value={formData.photo} onChange={handleChange}  />
       </div>
 
       <div className="form-group">

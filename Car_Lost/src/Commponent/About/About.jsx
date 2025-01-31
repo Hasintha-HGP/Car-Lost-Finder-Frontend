@@ -6,6 +6,7 @@ import Traff from '../Images/Home/Road.jpg';
 import Police from '../Images/Home/Police.png';
 import Comment from '../Comment section/Comment.jsx';
 import chose from '../Images/Home/choose.png';
+import Footer from '../Footer/Footer.jsx';
 
 function About(){
     useEffect(() => {
@@ -130,7 +131,7 @@ function About(){
             <a href='#'><p><b>ADD YOUR GARAGE</b></p></a>
             </div>  
         </div>
-        <div className='about_us'>
+        <div className='about_us' id='About_us'>
         <h4>About Us</h4>
         <p>Welcome to Car Finder Website, your trusted platform for safeguarding your vehicle information and personal details. Our mission is to provide a secure and reliable solution for managing your vehicle records while prioritizing your privacy.</p>
         <p>At Car Finder Website , we understand the importance of protecting sensitive information. That’s why we’ve implemented robust privacy measures to ensure your data remains secure and confidential. Our commitment to user privacy means you never have to worry about unauthorized access or misuse of your details.</p>
@@ -149,12 +150,9 @@ function About(){
         <div className='Reviews'>
         <Comment/>
         </div>
-        
-        
-        <div className='Review'>
-        <h4>Add Online Review</h4>
-        </div>
+       
     </div>
+    <Footer/>
     </>
     );
 }

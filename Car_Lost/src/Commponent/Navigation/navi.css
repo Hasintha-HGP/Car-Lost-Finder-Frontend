@@ -2,7 +2,7 @@
 .navbar{
    background: linear-gradient(to left,#28282B,black,#28282B);
    color: #ffffff;
-   height: 130px;
+   height: 180px;
    
 }
 .navidiv{
@@ -10,10 +10,13 @@
     align-items: center;
     justify-content: space-between;
 }
-.name{
-    font-size: 50px;
-    font-weight: 600;
-    margin-top: 10px;
+.name img{
+  margin-top: 16px;
+  margin-left: 70px;
+    width:140px;
+    height:140px ;
+    border-radius: 50%;
+    box-shadow: 0 0 10px 2px #1f201f, 0 0 10px 2px #575957, 0 0 10px 2px #eef0ee;
 
 }
 .navidiv li {

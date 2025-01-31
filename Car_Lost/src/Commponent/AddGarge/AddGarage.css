@@ -1,10 +1,10 @@
-/* Import Google Font: Poppins */
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
-/* Base Styles */
+
 .wrapper1 {
   font-family: 'Poppins', sans-serif;
-  background: url('../Images/Home/homeorg.jpg') no-repeat center center fixed; /* Add background image */
+  background: url('../Images/Home/homeorg.jpg') no-repeat center center fixed; 
   background-size: cover;
   color: #ffffff;
   margin: 0;
@@ -15,16 +15,18 @@
   height: 100%;
 }
 
-/* Form Container */
+
 .form-container1 {
   width: 100%;
   max-width: 500px;
-  background: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
-  backdrop-filter: blur(12px); /* Frosted glass effect */
+  background: rgba(255, 255, 255, 0.1); 
+  backdrop-filter: blur(12px); 
   border-radius: 15px;
   padding: 30px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-top: 100px;
+  margin-bottom: 70px;
 }
 
 /* Hover Effect on Form */

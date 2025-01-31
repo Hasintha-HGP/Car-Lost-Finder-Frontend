@@ -26,7 +26,7 @@ function Profile() {
     
     const [showUserInfo, setShowUserInfo] = useState(false);
     const [showVehicles, setShowVehicles] = useState(false);
-    const [showGarages, setShowGarages] = useState(false);
+    const [showGarages, setShowGarages] = useState(false);  
   
     return (
         <>

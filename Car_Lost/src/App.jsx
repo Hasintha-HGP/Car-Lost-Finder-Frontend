@@ -22,9 +22,9 @@ function App() {
   return (
     <>
        <Routes>
-        <Route path='/' element={<About/>} />
+       <Route path='/Login' element={<Login/>} />
+        <Route path='/' element={<Login/>} />
         <Route path='/Register' element={<Register/>} />
-        <Route path='/Login' element={<Login/>} />
         <Route path='/Myprofile' element={<Profile/>} />
         <Route path='/HomePage' element={<About/>} />
         <Route path='/EditProfile' element={<Update/>} />

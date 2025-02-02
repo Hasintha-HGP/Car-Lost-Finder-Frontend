@@ -12,7 +12,7 @@ function Login() {
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
-        e.preventDefault(); // Fixed typo
+        e.preventDefault(); 
 
         try {
             const userData = await UserService.login(email, password);
@@ -20,7 +20,7 @@ function Login() {
             if (userData.token) {
                 localStorage.setItem('token', userData.token);
                 localStorage.setItem('role', userData.role);
-                navigate('/Myprofile'); // Redirect to homepage after login
+                navigate('/Myprofile'); 
             } else {
                 setError(userData.error || "Invalid credentials");
             }

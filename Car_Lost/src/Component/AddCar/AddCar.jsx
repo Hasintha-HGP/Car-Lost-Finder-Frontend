@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import "./AddCar.css"; 
+import { useNavigate } from "react-router-dom";
+import CarService from '../Service/CarService.js';
 
 function AddCar() {
+  const navigate=useNavigate();
   const [formData, setFormData] = useState({
     ownerId: "",
     ownerName: "",
@@ -10,23 +13,40 @@ function AddCar() {
     producedYear: "",
     transmission: "",
     registeredYear: "",
-    carPhotos: null,
   });
 
   const handleChange = (e) => {
-    const { name, value, files } = e.target;
-    if (name === "carPhotos") {
-      setFormData({ ...formData, [name]: files }); 
-    } else {
+    const { name, value, } = e.target;
       setFormData({ ...formData, [name]: value });
-    }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
-    console.log(formData);
-    // Add your form submission logic here
-  };
+    
+    
+    try{
+    const carData={...formData}
+    await CarService.register(carData);
+
+    localStorage.setItem('carData',JSON.stringify(carData));
+
+    setFormData({
+      ownerId: "",
+      ownerName: "",
+      brand: "",
+      model: "",
+      producedYear: "",
+      transmission: "",
+      registeredYear: "",
+    });
+    alert("Car Registered Successfully");
+        navigate('/MyProfile');
+  }
+      catch(error){
+  console.error('Error Registering Car',error);
+        alert('An error occcured while registering Car');
+}
+};
 
   return (
     <div className="wrapper">
@@ -90,20 +110,7 @@ function AddCar() {
               required
             />
           </div>
-          </td><td>
-         <div className="form-group">
-            <label htmlFor="carPhotos">Upload Car Photos</label>
-            <input
-              type="file"
-              id="carPhotos"
-              name="carPhotos"
-              accept="image/*"
-              multiple
-              onChange={handleChange}
-              required
-            />
-         </div>
-         </td></tr>
+         </td></tr> 
          </table>
           <button type="submit" className="submit-button1">Add Car</button>
         </form>

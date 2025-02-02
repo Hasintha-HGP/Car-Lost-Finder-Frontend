@@ -1,49 +1,64 @@
 import React, { useState } from 'react';
-import './Register.css'; // Ensure to import the CSS file
+import './Register.css';
+import { useNavigate } from 'react-router-dom';
+import UserService from '../Service/UserService';
 
-const RegisterForm = () => {
+function RegisterPage(){
+const navigate = useNavigate();
   const [formData, setFormData] = useState({
     nic: '',
-    fullName: '',
+    name: '',
     sex: '',
     job: '',
-    streetNumber: '',
-    street: '',
     city: '',
     phone: '',
     email: '',
-    photo: '',
     password: '',
-    confirmPassword: ''
+    confirmPassword: '',
+    role:''
   });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+
+
+  const handleSubmit =async (e) => {
+    e.preventDefault();
+    try{
+      if (validate()) {
+      
+        const userData={...formData,role:"USER"}
+        await UserService.register(userData);
+        
+        setFormData({
+          nic:'',
+          name:'',
+          sex:'',
+          job:'',
+          city:'',
+          phone:'',
+          email:'',
+          password:'',
+          role:''
+          
+        });
+        alert("User Registered Successfully");
+        navigate('/HomePage');
+      }
+  }catch(error){
+
+        console.error('Error Registering User',error);
+        alert('An error occcured while registering user');
+  }
+  };
+
 
   const [errors, setErrors] = useState({});
   const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
-  const handleFileChange = (e) => {
-    const file = e.target.files[0];
   
-    if (file) {
-      // Check if the file is a .jpg or .jpeg
-      const fileType = file.type;
-      if (fileType === 'image/jpeg') {
-        const reader = new FileReader();
-        reader.onloadend = () => {
-          setFormData({
-            ...formData,
-            photo: reader.result // Store the base64 image data
-          });
-        };
-        reader.readAsDataURL(file); // Reads the image file as base64
-      } else {
-        // If the file is not .jpg or .jpeg, set an error message
-        alert('Only JPG/JPEG files are allowed');
-        setFormData({
-          ...formData,
-          photo: '' // Clear any previous image
-        });
-      }
-    }
-  };
   const validate = () => {
     let errors = {};
     
@@ -55,11 +70,6 @@ const RegisterForm = () => {
       errors.phone = 'Phone number must be exactly 10 digits';
     }
 
-    // Validate password
-    if (!/(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[A-Za-z\\d]{8,}$/.test(formData.password)) {
-      errors.password = 'Password must be at least 8 characters, include uppercase, lowercase letters, and a number';
-    }
-
     // Validate confirm password
     if (formData.password !== formData.confirmPassword) {
       errors.confirmPassword = 'Passwords do not match';
@@ -67,19 +77,6 @@ const RegisterForm = () => {
 
     setErrors(errors);
     return Object.keys(errors).length === 0;
-  };
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (validate()) {
-      alert('Form submitted successfully!');
-      console.log(formData);
-    }
   };
 
   const toggleShowPassword = () => {
@@ -94,18 +91,18 @@ const RegisterForm = () => {
     <form className="register-form" onSubmit={handleSubmit}>
       <div className="form-group">
       <label className="required">NIC:</label>
-     <input type="text" name="nic" value={formData.nic} onChange={handleChange} required />
+     <input type="text" name="nic" value={formData.nic} onChange={handleInputChange} required />
       {errors.nic && <p className="error-message">{errors.nic}</p>}
       </div>
 
       <div className="form-group">
         <label className="required">Full Name:</label>
-        <input type="text" name="fullName" value={formData.fullName} onChange={handleChange} required />
+        <input type="text" name="name" value={formData.name} onChange={handleInputChange} required />
       </div>
 
       <div className="form-group">
         <label className="required">Sex:</label>
-        <select name="sex" value={formData.sex} onChange={handleChange} required>
+        <select name="sex" value={formData.sex} onChange={handleInputChange} required>
           <option value="">Select</option>
           <option value="Male">Male</option>
           <option value="Female">Female</option>
@@ -115,38 +112,26 @@ const RegisterForm = () => {
 
       <div className="form-group">
         <label className="required">Job:</label>
-        <input type="text" name="job" value={formData.job} onChange={handleChange} required />
+        <input type="text" name="job" value={formData.job} onChange={handleInputChange} required />
       </div>
 
-      <div className="form-group">
-        <label className="required">Street Number:</label>
-        <input type="text" name="streetNumber" value={formData.streetNumber} onChange={handleChange} required />
-      </div>
-
-      <div className="form-group">
-        <label className="required">Street:</label>
-        <input type="text" name="street" value={formData.street} onChange={handleChange} required />
-      </div>
 
       <div className="form-group">
         <label className="required">City:</label>
-        <input type="text" name="city" value={formData.city} onChange={handleChange} required />
+        <input type="text" name="city" value={formData.city} onChange={handleInputChange} required />
       </div>
 
       <div className="form-group">
         <label className="required">Phone Number:</label>
-        <input type="text" name="phone" value={formData.phone} onChange={handleChange} required />
+        <input type="text" name="phone" value={formData.phone} onChange={handleInputChange} required />
         {errors.phone && <p className="error-message">{errors.phone}</p>}
       </div>
 
       <div className="form-group">
         <label className="required">Email:</label>
-        <input type="email" name="email" value={formData.email} onChange={handleChange} required />
+        <input type="email" name="email" value={formData.email} onChange={handleInputChange} required />
       </div>
-      <div className="form-group">
-        <label className="required">Add Your Photo:</label>
-        <input type="file" name="file" value={formData.photo} onChange={handleChange}  />
-      </div>
+      
 
       <div className="form-group">
         <label className="required">Password:</label>
@@ -155,7 +140,7 @@ const RegisterForm = () => {
             type={showPassword ? 'text' : 'password'}
             name="password"
             value={formData.password}
-            onChange={handleChange}
+            onChange={handleInputChange}
             required
           />
           <button type="button" onClick={toggleShowPassword} style={{ marginLeft: '10px' }}>
@@ -171,7 +156,7 @@ const RegisterForm = () => {
           type={showPassword ? 'text' : 'password'}
           name="confirmPassword"
           value={formData.confirmPassword}
-          onChange={handleChange}
+          onChange={handleInputChange}
           required
         />
         {errors.confirmPassword && <p className="error-message">{errors.confirmPassword}</p>}
@@ -183,6 +168,5 @@ const RegisterForm = () => {
     </div>
     </>
   );
-};
-
-export default RegisterForm;
+}
+export default RegisterPage;

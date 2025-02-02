@@ -74,9 +74,19 @@ class UserService {
     }
 
     static async register(userData) {
-        return await UserService.makeAuthorizedRequest("post", "/auth/register", userData);
+        try {
+            const response = await axios.post(`${UserService.BASE_URL}/auth/register`, userData, {
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            });
+            console.log(userData);
+            return response.data;
+        } catch (error) {
+            throw error.response ? error.response.data : error;
+        }
     }
-
+    
     static async getAllUsers() {
         return await UserService.makeAuthorizedRequest("get", "/admin/get-all-users");
     }

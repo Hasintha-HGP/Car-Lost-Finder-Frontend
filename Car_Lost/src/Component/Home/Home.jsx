@@ -12,8 +12,8 @@ return(
 
             <div className="Buttons">
          
-            <a href='/Register'> <button className='buttonsign'>Sign Up</button></a>
-            <a href='/Login'> <button className='buttonlog'>Login</button></a>
+            <a href='/register'> <button className='buttonsign'>Sign Up</button></a>
+            <a href='/rogin'> <button className='buttonlog'>Login</button></a>
         
         </div>
         </div>

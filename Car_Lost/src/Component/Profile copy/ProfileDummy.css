@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+  
+
+
+  .profile-dashboard {
+    
+    background-size: cover;
+    background: linear-gradient(to left, #141e30 , #243b55);
+    height: 100%;
+    padding: 30px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    
+  }
+  
+  .profile-dashboard:hover {
+    box-shadow: 0px 15px 50px rgba(0, 0, 0, 0.2);
+  }
+  
+  .user-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    margin-left: 20px;
+    margin-right: 30px;
+  }
+  
+  .user-photo {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 5px solid #1e2b39;
+    object-fit: cover;
+  }
+  .user-photo:hover{
+    transform: scale(1.1);
+  }
+  
+  .user-info h1 {
+    font-size: 90px;
+    color: white;
+    margin: 0;
+    text-align: left;
+  }
+  
+  .user-info p {
+    font-size: 45px;
+    color: white;
+    margin-top: 5px;
+    text-align: left;
+    font-weight: 500;
+  }
+  
+  .actions {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+  }
+  
+  .actions .btnprofile {
+    background: #054d65;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .actions .btnprofile:hover {
+    background: #37b8bd;
+    transform: scale(1.05);
+  }
+  
+  .section {
+    margin: 20px 0;
+  }
+  
+  .section h2 {
+    font-size: 24px;
+    color: #333;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+  }
+  
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .user-details h2{
+    font-size: 30px;
+    color: white;
+  }
+  .vehicle-details h2{
+    font-size: 30px;
+    color: white;
+  }
+  .garage-details h2{
+    font-size: 30px;
+    color: white;
+  }
+  
+  .card {
+    background: rgb(58, 64, 89);
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .vehicle-card, .garage-card {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .vehicle-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+  
+  .vehicle-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .vehicle-info p, .card p {
+    font-size: 24px;
+    color: white;
+    margin-bottom: 8px;
+  }
+  
+  .bottom-actions {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 83px;
+  }
+  .bottom-actions a {
+    color: white;
+  }
+  
+  .bottom-btn {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  
+  .logout {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .logout:hover {
+    background: #db515f;
+    transform: scale(1.05);
+  }
+  .edit-profile{
+    background: #0f8ae7;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .edit-profile:hover{
+    background: #13bfe2;
+    transform: scale(1.05);
+  }
+  .add-car{
+    background: #0f8ae7;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .add-car:hover{
+    background: #13bfe2;
+    transform: scale(1.05);
+  }
+  .add-garage{
+    background: #0f8ae7;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .add-garage:hover{
+    background: #13bfe2;
+    transform: scale(1.05);
+  }
+  

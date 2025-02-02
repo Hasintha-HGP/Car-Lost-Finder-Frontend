@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import './Register.css';
 import { useNavigate } from 'react-router-dom';
 import UserService from '../Service/UserService';
@@ -32,6 +32,8 @@ const navigate = useNavigate();
       
         const userData={...formData,role:"USER"}
         await UserService.register(userData);
+
+        localStorage.setItem('userData',JSON.stringify(userData));
         
         setFormData({
           nic:'',
@@ -46,7 +48,7 @@ const navigate = useNavigate();
           
         });
         alert("User Registered Successfully");
-        navigate('/HomePage');
+        navigate('/HomePageDummy');
       }
   }catch(error){
 

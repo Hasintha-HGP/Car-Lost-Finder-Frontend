@@ -9,6 +9,9 @@ import CarService from '../Service/CarService.js';
 function Profile() {
   const [userData, setUserData] = useState({});
   const [carData, setCarData] = useState([]);
+  const [showUserInfo, setShowUserInfo] = useState(true);
+const [showCarInfo, setShowCarInfo] = useState(false);
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -37,7 +40,7 @@ function Profile() {
   }, [navigate]);
 
   useEffect(() => {
-    const ownerId = userData.nic; // Assuming NIC is used as ownerId
+    const ownerId = userData.nic; 
     if (ownerId) {
       CarService.getCar(ownerId)
         .then((carResponse) => {
@@ -79,18 +82,14 @@ function Profile() {
           </div>
         </div>
 
-        <div className="section user-details">
-          <h2>My Details</h2>
-          <div className="card">
-            <table cellSpacing={10}>
-              <tbody>
-                <tr><td><strong>Email:</strong></td><td>{userData.email}</td></tr>
-                <tr><td><strong>Phone:</strong></td><td>{userData.phone}</td></tr>
-                <tr><td><strong>NIC:</strong></td><td>{userData.nic}</td></tr>
-                <tr><td><strong>City:</strong></td><td>{userData.city}</td></tr>
-              </tbody>
-            </table>
-          </div>
+        <div className="actions">
+        
+<button onClick={() => setShowUserInfo(!showUserInfo)} className="btnprofile">
+  {showUserInfo ? "Hide My Details" : "Show My Details"}
+</button>
+<button onClick={() => setShowCarInfo(!showCarInfo)} className="btnprofile">
+  {showCarInfo ? "Hide Vehicles" : "My Vehicles"}
+</button>   
         </div>
 
         <div className="bottom-actions">
@@ -100,6 +99,23 @@ function Profile() {
           <button className="add_garage"><Link to='/AddGarage'>Add Garage</Link></button>
         </div>
 
+        {showUserInfo && userData.name && (
+  <div className="section user-details">
+    <h2>My Details</h2>
+    <div className="card">
+      <table cellSpacing={10}>
+        <tbody>
+          <tr><td><strong>Email:</strong></td><td>{userData.email}</td></tr>
+          <tr><td><strong>Phone:</strong></td><td>{userData.phone}</td></tr>
+          <tr><td><strong>NIC:</strong></td><td>{userData.nic}</td></tr>
+          <tr><td><strong>City:</strong></td><td>{userData.city}</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+)}
+        
+{showCarInfo && carData.length >0 && (
         <div className="section vehicle-details">
           <h2>My Vehicles</h2>
           {carData.length > 0 ? (
@@ -119,6 +135,7 @@ function Profile() {
             <p>No vehicles added yet.</p>
           )}
         </div>
+)}
       </div>
       <Footer />
     </>

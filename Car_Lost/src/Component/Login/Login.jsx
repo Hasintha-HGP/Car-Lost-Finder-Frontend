@@ -20,7 +20,7 @@ function Login() {
             if (userData.token) {
                 localStorage.setItem('token', userData.token);
                 localStorage.setItem('role', userData.role);
-                navigate('/Myprofile'); 
+                navigate('/HomePage'); 
             } else {
                 setError(userData.error || "Invalid credentials");
             }

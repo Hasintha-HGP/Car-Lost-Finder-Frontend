@@ -60,7 +60,7 @@ function AddCar() {
             <label>Owner NIC</label>
             <input
               type="text"
-              name="onwerId"
+              name="ownerId"
               value={formData.ownerId}
               onChange={handleChange}
               required

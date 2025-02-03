@@ -53,7 +53,32 @@ function AddCar() {
       <div className="form-container">
         <h2>Add New Car</h2>
         <form onSubmit={handleSubmit} className="form">
-          <table cellSpacing={37}><tr><td>
+          
+          <table cellSpacing={37}>
+          <tr><td>
+          <div className="form-group">
+            <label>Owner NIC</label>
+            <input
+              type="text"
+              name="onwerId"
+              value={formData.ownerId}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          </td><td>
+          <div className="form-group">
+            <label>Owner Name</label>
+            <input
+              type="text"
+              name="ownerName"
+              value={formData.ownerName}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          </td></tr>
+            <tr><td>
           <div className="form-group">
             <label>Brand</label>
             <input

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./AddCar.css"; // Import the CSS file
+import "./AddCar.css"; 
 
 function AddCar() {
   const [formData, setFormData] = useState({
@@ -25,6 +25,7 @@ function AddCar() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formData);
+    // Add your form submission logic here
   };
 
   return (
@@ -32,6 +33,7 @@ function AddCar() {
       <div className="form-container">
         <h2>Add New Car</h2>
         <form onSubmit={handleSubmit} className="form">
+          <table cellSpacing={37}><tr><td>
           <div className="form-group">
             <label>Brand</label>
             <input
@@ -42,6 +44,7 @@ function AddCar() {
               required
             />
           </div>
+          </td><td>
           <div className="form-group">
             <label>Model</label>
             <input
@@ -52,6 +55,8 @@ function AddCar() {
               required
             />
           </div>
+          </td></tr>
+          <tr><td>
           <div className="form-group">
             <label>Produced Year</label>
             <input
@@ -62,6 +67,7 @@ function AddCar() {
               required
             />
           </div>
+          </td><td>
           <div className="form-group">
             <label>Transmission</label>
             <input
@@ -72,6 +78,8 @@ function AddCar() {
               required
             />
           </div>
+          </td></tr>
+          <tr><td>
           <div className="form-group">
             <label>Registered Year</label>
             <input
@@ -82,6 +90,7 @@ function AddCar() {
               required
             />
           </div>
+          </td><td>
          <div className="form-group">
             <label htmlFor="carPhotos">Upload Car Photos</label>
             <input
@@ -94,7 +103,9 @@ function AddCar() {
               required
             />
          </div>
-          <button type="submit" className="submit-button">Add Car</button>
+         </td></tr>
+         </table>
+          <button type="submit" className="submit-button1">Add Car</button>
         </form>
       </div>
     </div>  

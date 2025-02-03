@@ -1,20 +1,20 @@
 import React from "react";
 import "./Footer.css";
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import LOGO from '../Images/Home/Logo.jpg';
 
 const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-container">
         <div className="footer-logo">
-          <img src= "src/assets/logo.png" alt="Company Logo" />
+          <img src={LOGO} alt="Company Logo" />
         </div>
 
         <div className="footer-section">
           <h4>About Us</h4>
           <p>
-            We are a modern tech company delivering innovative solutions to
-            enhance your digital presence.
+          Car Finder Website is your trusted platform for securely managing vehicle information. We prioritize your privacy with robust security measures, ensuring your data stays safe and confidential. Join us to experience seamless vehicle management and peace of mind
           </p>
         </div>
         <div className="footer-section">
@@ -26,6 +26,7 @@ const Footer = () => {
             <li><a href="/privacy">Privacy Policy</a></li>
           </ul>
         </div>
+        
         <div className="footer-section">
           <h4>Contact Us</h4>
           <div className="contact-us">
@@ -34,9 +35,10 @@ const Footer = () => {
             <li><i className="fas fa-envelope"></i> lostcarfindlk@gmail.com</li>
           </div>
         </div>
+       
       </div>
       <div className="footer-bottom">
-        <p>&copy; 2025 Lost Car Find. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()}  Lost Car Find. All rights reserved.</p>
       </div>
     </footer>
   );

@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 .navbar{
-   background: linear-gradient(to left,black,#28282B);
-   color: white;
-   height: 150px;
+   background: linear-gradient(to left,#28282B,black,#28282B);
+   color: #ffffff;
+   height: 180px;
    
 }
 .navidiv{
@@ -10,10 +10,13 @@
     align-items: center;
     justify-content: space-between;
 }
-.name{
-    font-size: 50px;
-    font-weight: 600;
-    margin-top: 10px;
+.name img{
+  margin-top: 16px;
+  margin-left: 70px;
+    width:140px;
+    height:140px ;
+    border-radius: 50%;
+    box-shadow: 0 0 10px 2px #1f201f, 0 0 10px 2px #575957, 0 0 10px 2px #eef0ee;
 
 }
 .navidiv li {
@@ -25,6 +28,7 @@
     margin-right: 25px;
     border: none;
     margin-bottom: 25px;
+    margin-top: 50px;
     
     
 }
@@ -81,7 +85,7 @@
     }
     
     &.light{
-      background-color: #36454F;
+      background-color: black;
       
       &::before{
         background-color: #28282B;

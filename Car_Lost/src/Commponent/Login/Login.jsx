@@ -11,7 +11,7 @@ function Login(){
                 <form className='form' action=''>
                     <h1>Login</h1>
                     <div className='inputbox'>
-                        <input type='text' placeholder='Username' required/>
+                        <input type='email' placeholder='Email' required/>
                         <FaUser className='ico'/>
                     </div>
                     <div className='inputbox'>

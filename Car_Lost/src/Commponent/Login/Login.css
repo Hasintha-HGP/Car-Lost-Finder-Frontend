@@ -8,7 +8,7 @@
     opacity: 0.9;
     position: absolute;
     width:420px;
-    height: 450px;
+    height: 500px;
     background:#353935 ;
     border-radius: 10px;
     color: #fff;
@@ -35,12 +35,14 @@
 .form h1{
     font-size: 36px;
     text-align: center;
+    
 }
 .form .inputbox{
     position: relative;
     width: 100%;
     height: 50px;
     margin: 30px 0;
+    margin-top: -10px;
     
     
 }
@@ -102,3 +104,47 @@
 .form .sign-up p a:hover{
     text-decoration: underline;
 }
+/* Responsive Design */
+
+@media screen and (max-width: 480px) {
+    .main {
+      width: 90%; 
+      padding: 10px;
+      border-radius: 8px;
+      margin-top: 50px; 
+      transform: translate(-50%, -50%);
+    }
+  
+    .form-login {
+      padding: 10px; 
+    }
+  
+    .form h1 {
+      font-size: 20px; 
+    }
+  
+    .inputbox input {
+      font-size: 12px; 
+      padding: 10px 25px 10px 10px; 
+    }
+  
+    .inputbox .ico {
+      right: 10px; 
+      font-size: 14px;
+    }
+  
+    .form button {
+      height: 36px; 
+      font-size: 14px; 
+    }
+  
+    .form .sign-up {
+      font-size: 12px; 
+      margin-top: 15px;
+    }
+  
+    .form .sign-up p {
+      margin: 0; 
+    }
+  }
+  

@@ -1,6 +1,6 @@
 import React from "react";
 import "./Footer.css";
-import '@fortawesome/fontawesome-free/css/all.min.css';
+
 import LOGO from '../Images/Home/Logo.jpg';
 
 const Footer = () => {
@@ -30,9 +30,9 @@ const Footer = () => {
         <div className="footer-section">
           <h4>Contact Us</h4>
           <div className="contact-us">
-            <li><i className="fas fa-phone"></i> +94754024083</li>
-            <li><i className="fas fa-map-marker-alt"></i> University of Kelaniya,<br /> Dalugama,<br /> Sri Lanka</li>
-            <li><i className="fas fa-envelope"></i> lostcarfindlk@gmail.com</li>
+            <li> +94754024083</li>
+            <li> University of Kelaniya,<br /> Dalugama,<br /> Sri Lanka</li>
+            <li> lostcarfindlk@gmail.com</li>
           </div>
         </div>
        

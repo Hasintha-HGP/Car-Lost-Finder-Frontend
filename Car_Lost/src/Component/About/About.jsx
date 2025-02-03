@@ -7,8 +7,14 @@ import Police from '../Images/Home/Police.png';
 import Comment from '../Comment section/Comment.jsx';
 import chose from '../Images/Home/choose.png';
 import Footer from '../Footer/Footer.jsx';
+import { BsCarFront } from "react-icons/bs";
+import { BsFillHousesFill } from "react-icons/bs";
+import { BsBellFill } from "react-icons/bs";
+import { BsFillPinMapFill } from "react-icons/bs";
 
 function About(){
+  
+  
     useEffect(() => {
         const scrollRevealOption = {
             distance: "100px",
@@ -116,19 +122,23 @@ function About(){
         <div className='icons'>
            <div className='icons1'>
             
-            <a href='#'><p><b>ADD YOUR VEHICLE</b></p></a>
+            <a href='/Addcar'><p><b>ADD YOUR VEHICLE</b></p></a>
+            <a href='/AddGarage'>< BsCarFront  className='iconAdd'/></a>
             </div> 
             <div className='icons2'>
             
             <a href='#'><p><b>UPDATE VEHICLE STATUS</b></p></a>
+            <a href='#'>< BsFillPinMapFill  className='iconAdd'/></a>
             </div>
             <div className='icons3'>
             
             <a href='#'><p><b>RECENT ENTRIES</b></p></a>
+            <a href='#'>< BsBellFill  className='iconAdd'/></a>
             </div>  
             <div className='icons3'>
             
-            <a href='#'><p><b>ADD YOUR GARAGE</b></p></a>
+            <a href='/AddGarage'><p><b>ADD YOUR GARAGE</b></p></a>
+            <a href='/AddGarage'>< BsFillHousesFill  className='iconAdd'/></a>
             </div>  
         </div>
         <div className='about_us' id='About_us'>

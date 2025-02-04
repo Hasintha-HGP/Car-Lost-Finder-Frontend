@@ -14,7 +14,12 @@ import { BsFillPinMapFill } from "react-icons/bs";
 
 function About(){
   
-  
+  const [isPanelVisible, setIsPanelVisible] = useState(false);
+
+  // Toggle notification panel visibility on click
+  const toggleNotificationPanel = () => {
+    setIsPanelVisible(!isPanelVisible);
+  };
     useEffect(() => {
         const scrollRevealOption = {
             distance: "100px",

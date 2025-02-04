@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import UserService from "../Service/UserService";
 import './Login.css';
@@ -9,7 +9,16 @@ function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
+    const [rememberMe, setRememberMe] = useState(false);
     const navigate = useNavigate();
+
+    
+    useEffect(() => {
+        const storedToken = localStorage.getItem('token');
+        if (storedToken) {
+            navigate('/MyProfile'); 
+        }
+    }, [navigate]);
 
     const handleSubmit = async (e) => {
         e.preventDefault(); 
@@ -18,9 +27,12 @@ function Login() {
             const userData = await UserService.login(email, password);
             
             if (userData.token) {
-                localStorage.setItem('token', userData.token);
-                localStorage.setItem('role', userData.role);
-                navigate('/HomePage'); 
+                
+                if (rememberMe) {
+                    localStorage.setItem('rememberMe', true);
+                }
+
+                navigate('/MyProfile'); 
             } else {
                 setError(userData.error || "Invalid credentials");
             }
@@ -65,12 +77,17 @@ function Login() {
                             </div>
                             <div className='remember'>
                                 <label>
-                                    <input type='checkbox' />Remember me
+                                    <input 
+                                        type='checkbox' 
+                                        checked={rememberMe} 
+                                        onChange={() => setRememberMe(!rememberMe)} 
+                                    />
+                                    Remember me
                                 </label>
                             </div>
                             <button type='submit'>Login</button>
                             <div className='sign-up'>
-                                <p>Don't have an account? <a href='/register'>Sign Up</a></p> {/* Fixed link */}
+                                <p>Don't have an account? <a href='/register'>Sign Up</a></p>
                             </div>
                         </form>
                     </div>

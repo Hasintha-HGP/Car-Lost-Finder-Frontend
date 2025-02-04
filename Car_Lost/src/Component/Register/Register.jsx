@@ -48,7 +48,7 @@ const navigate = useNavigate();
           
         });
         alert("User Registered Successfully");
-        navigate('/HomePageDummy');
+        navigate('/login');
       }
   }catch(error){
 

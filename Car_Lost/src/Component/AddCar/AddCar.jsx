@@ -13,6 +13,7 @@ function AddCar() {
     producedYear: "",
     transmission: "",
     registeredYear: "",
+    vehicleNumber:"",
   });
 
   const handleChange = (e) => {
@@ -38,6 +39,7 @@ function AddCar() {
       producedYear: "",
       transmission: "",
       registeredYear: "",
+      vehicleNumber:"",
     });
     alert("Car Registered Successfully");
         navigate('/MyProfile');
@@ -55,8 +57,9 @@ function AddCar() {
         <form onSubmit={handleSubmit} className="form">
           
           <table cellSpacing={37}>
-          <tr><td>
-          <div className="form-group">
+          <tr>
+            <td>
+            <div className="form-group">
             <label>Owner NIC</label>
             <input
               type="text"
@@ -65,9 +68,11 @@ function AddCar() {
               onChange={handleChange}
               required
             />
-          </div>
-          </td><td>
-          <div className="form-group">
+            </div>
+            </td>
+            
+            <td>
+            <div className="form-group">
             <label>Owner Name</label>
             <input
               type="text"
@@ -76,10 +81,15 @@ function AddCar() {
               onChange={handleChange}
               required
             />
-          </div>
-          </td></tr>
-            <tr><td>
-          <div className="form-group">
+            </div>
+            </td>
+            
+          </tr>
+
+          <tr>
+            
+            <td>
+            <div className="form-group">
             <label>Brand</label>
             <input
               type="text"
@@ -88,9 +98,11 @@ function AddCar() {
               onChange={handleChange}
               required
             />
-          </div>
-          </td><td>
-          <div className="form-group">
+            </div>
+            </td>
+          
+            <td>
+            <div className="form-group">
             <label>Model</label>
             <input
               type="text"
@@ -99,10 +111,13 @@ function AddCar() {
               onChange={handleChange}
               required
             />
-          </div>
-          </td></tr>
-          <tr><td>
-          <div className="form-group">
+            </div>
+            </td>
+          </tr>
+          <tr>
+            
+            <td>
+            <div className="form-group">
             <label>Produced Year</label>
             <input
               type="text"
@@ -111,9 +126,11 @@ function AddCar() {
               onChange={handleChange}
               required
             />
-          </div>
-          </td><td>
-          <div className="form-group">
+            </div>
+            </td>
+          
+            <td>
+            <div className="form-group">
             <label>Transmission</label>
             <input
               type="text"
@@ -122,10 +139,14 @@ function AddCar() {
               onChange={handleChange}
               required
             />
-          </div>
-          </td></tr>
-          <tr><td>
-          <div className="form-group">
+            </div>
+            </td>
+            
+          </tr>
+          <tr>
+            
+            <td>
+            <div className="form-group">
             <label>Registered Year</label>
             <input
               type="text"
@@ -134,8 +155,23 @@ function AddCar() {
               onChange={handleChange}
               required
             />
-          </div>
-         </td></tr> 
+            </div>
+            </td>
+            
+            <td>
+            <div className="form-group">
+            <label> Vehicle Number</label>
+            <input
+              type="text"
+              name="vehicleNumber"
+              value={formData.vehicleNumber}
+              onChange={handleChange}
+              required
+            />
+            </div>
+            </td>
+            
+            </tr> 
          </table>
           <button type="submit" className="submit-button1">Add Car</button>
         </form>

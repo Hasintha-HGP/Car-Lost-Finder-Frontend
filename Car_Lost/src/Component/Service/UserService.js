@@ -67,6 +67,20 @@ class UserService {
     static async login(email, password) {
         try {
             const response = await axios.post(`${UserService.BASE_URL}/auth/login`, { email, password });
+
+            // Assuming the response contains the user data and token
+            const { token, role } = response.data;
+
+            // Store token and role
+            localStorage.setItem("token", token);
+            localStorage.setItem("role", role);
+
+            // Fetch user's profile and store the name
+            const profile = await UserService.getProfile(); // Get profile using the token
+            if (profile && profile.name) {
+                localStorage.setItem("userName", profile.name);
+            }
+
             return response.data;
         } catch (error) {
             throw error.response ? error.response.data : error;
@@ -80,7 +94,6 @@ class UserService {
                     "Content-Type": "application/json"
                 }
             });
-            console.log(userData);
             return response.data;
         } catch (error) {
             throw error.response ? error.response.data : error;
@@ -112,6 +125,7 @@ class UserService {
     static logout() {
         localStorage.removeItem("token");
         localStorage.removeItem("role");
+        localStorage.removeItem("userName");
     }
 
     static isAuthenticated() {

@@ -1,41 +1,68 @@
 import React, { useState, useRef, useEffect } from "react";
+import CommentService from "../Service/CommentService";
 import "./Comment.css";
 
 function CommentSection() {
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState("");
-  const [username, setUsername] = useState("Anonymous");
+  const [username, setUsername] = useState("Anonymous"); 
   const textareaRef = useRef(null);
 
+  
   useEffect(() => {
-    const carData = JSON.parse(localStorage.getItem("carData"));
-    if (carData && carData.ownerName) {
-      setUsername(carData.ownerName);
+    const userDetails = JSON.parse(localStorage.getItem("userDetails"));
+    if (userDetails && userDetails.user.name) {
+      setUsername(userDetails.user.name); 
     }
+
+    CommentService.getReviews()
+      .then((data) => {
+        if (Array.isArray(data.reviews)) {
+          const normalizedReviews = data.reviews.map((review) => ({
+            ...review,
+            timestamp: review.timestamp || new Date().toISOString(),
+          }));
+          setComments(normalizedReviews);
+        } else {
+          console.error("Unexpected data format:", data);
+          setComments([]);
+        }
+      })
+      .catch((error) => console.error("Error fetching comments:", error));
   }, []);
 
-  const handleCommentSubmit = (e) => {
+  const handleCommentSubmit = async (e) => {
     e.preventDefault();
-    if (newComment.trim()) {
-      setComments([
-        ...comments,
-        {
-          name: username,
-          text: newComment,
-          likes: 0,
-          liked: false,
-        },
-      ]);
-      setNewComment("");
-      textareaRef.current.focus();
+    const trimmedComment = newComment.trim();
+  
+    if (trimmedComment) {
+      const newReview = {
+        name: username,
+        text: trimmedComment,
+        timestamp: new Date().toISOString(),
+      };
+  
+      try {
+        const savedComment = await CommentService.addReview(newReview);
+        setComments((prevComments) => [...prevComments, savedComment]);
+        setNewComment("");
+        textareaRef.current.focus();
+  
+        // ✅ Refresh the page after successfully adding the comment
+        window.location.reload();
+      } catch (error) {
+        console.error("Error adding comment:", error);
+      }
+    } else {
+      alert("Please enter a valid comment.");
     }
   };
+  
 
-  const handleLike = (index) => {
-    const updatedComments = [...comments];
-    updatedComments[index].liked = !updatedComments[index].liked;
-    updatedComments[index].likes += updatedComments[index].liked ? 1 : -1;
-    setComments(updatedComments);
+
+  const formatTimestamp = (timestamp) => {
+    const date = new Date(timestamp);
+    return isNaN(date) ? "Invalid Date" : date.toLocaleString();
   };
 
   return (
@@ -59,18 +86,9 @@ function CommentSection() {
           {comments.map((comment, index) => (
             <div key={index} className="comment-card">
               <div className="comment-content">
-                <h4 className="comment-author">{comment.name}</h4>
+                <h4 className="comment-author">{comment.name || "Anonymous"}</h4>
                 <p className="comment-text">{comment.text}</p>
-                <span className="comment-timestamp">{comment.timestamp}</span>
-                <div className="like-section">
-                  <button
-                    onClick={() => handleLike(index)}
-                    className={comment.liked ? "liked-button" : "like-button"}
-                  >
-                    👍 {comment.liked ? "Liked" : "Like"}
-                  </button>
-                  <span className="like-count">{comment.likes} Likes</span>
-                </div>
+                <small>{formatTimestamp(comment.timestamp)}</small>
               </div>
             </div>
           ))}

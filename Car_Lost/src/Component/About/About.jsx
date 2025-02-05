@@ -14,6 +14,24 @@ import { BsFillPinMapFill } from "react-icons/bs";
 import NotificationPanel from '../Notification/NotificationPanel.jsx/'; 
 
 function About(){
+  const [searchQuery, setSearchQuery] = useState(""); // Search input
+  const [showResults, setShowResults] = useState(false); // To show/hide results panel
+  const [cityResults, setCityResults] = useState([]); // Search results
+
+  // Mock data for cities (Replace this with your actual data)
+  const mockCities = [
+    "New York", "Los Angeles", "Chicago", "Houston", "Phoenix",
+    "Philadelphia", "San Antonio", "San Diego", "Dallas", "San Jose"
+  ];
+
+  const handleSearch = () => {
+    // Filter cities that match the query (Case-insensitive)
+    const filteredCities = mockCities.filter(city =>
+      city.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+    setCityResults(filteredCities);
+    setShowResults(filteredCities.length > 0); // Show results panel if matches found
+  };
   
   const [showNotifications, setShowNotifications] = useState(false);
   const handleRecentEntriesClick = () => {
@@ -148,15 +166,34 @@ function About(){
             
         </div>
         {showNotifications && <NotificationPanel />}
+
         <div className='garagesearch'>
           <h4>Find The Garage Near Your City</h4>
         <form action="" class="search-bar">
-	      <input type="search" name="search" pattern=".*\S.*" placeholder='Enter City' />
-	      <button class="search-btn" type="submit">
+	      <input type="search" name="search" pattern=".*\S.*" placeholder='Enter City' value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)} />
+	      <button class="search-btn" type="submit" onClick={handleSearch}>
 		    <span>Search</span>
 	      </button>
         </form>
         </div>
+
+        {showResults && (
+        <div className="search-results-panel">
+          {cityResults.length > 0 ? (
+            cityResults.map((city, index) => (
+              <div key={index} className="search-result-card">
+                <h3>{city}</h3>
+                <p>Find more about {city}</p>
+              </div>
+            ))
+          ) : (
+            <div className="no-results">No cities found</div>
+          )}
+        </div>
+      )}
+    
+
         <div className='about_us' id='About_us'>
         <h4>About Us</h4>
         <p>Welcome to Car Finder Website, your trusted platform for safeguarding your vehicle information and personal details. Our mission is to provide a secure and reliable solution for managing your vehicle records while prioritizing your privacy.</p>

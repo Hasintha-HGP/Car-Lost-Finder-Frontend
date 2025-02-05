@@ -443,4 +443,47 @@ hr{
     background-color: #244850;
   }
 }
+.search-results-panel {
+  margin-top: 1em;
+  padding: 1em;
+  max-width: 50em;
+  background-color: #222;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1em;
+}
+
+.search-result-card {
+  background-color: #333;
+  padding: 1.25em;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.search-result-card h3 {
+  font-size: 18px;
+  margin-bottom: 0.5em;
+}
+
+.search-result-card p {
+  font-size: 14px;
+  color: #bbb;
+}
+
+.search-result-card:hover {
+  background-color: #444;
+  transform: translateY(-5px);
+}
+
+.no-results {
+  color: #bbb;
+  text-align: center;
+  font-style: italic;
+}
 

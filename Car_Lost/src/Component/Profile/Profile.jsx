@@ -16,7 +16,7 @@ function Profile() {
 
   const navigate = useNavigate();
 
-  // Fetch user profile data
+
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (!token) {
@@ -43,7 +43,6 @@ function Profile() {
       });
   }, [navigate]);
 
-  // Fetch user's car data
   useEffect(() => {
     const ownerId = userData.nic; 
     if (ownerId) {
@@ -67,13 +66,14 @@ function Profile() {
     }
   }, [userData.nic, navigate]);
 
-  // Logout handler
   const handleLogout = async () => {
     try {
       localStorage.removeItem('token');
       localStorage.removeItem('userDetails');
       localStorage.removeItem('role');
       localStorage.removeItem('rememberMe')
+      localStorage.removeItem('carData')
+      localStorage.removeItem('carDetails')
       navigate('/Logout');
     } catch (error) {
       console.error('Logout failed:', error);

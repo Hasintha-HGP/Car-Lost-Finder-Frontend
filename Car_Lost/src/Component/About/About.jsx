@@ -12,13 +12,42 @@ import { BsFillHousesFill } from "react-icons/bs";
 import { BsBellFill } from "react-icons/bs";
 import { BsFillPinMapFill } from "react-icons/bs";
 import NotificationPanel from '../Notification/NotificationPanel.jsx/'; 
+import { useNavigate } from 'react-router-dom';
+import UserService from '../Service/UserService.js';
 
 function About(){
   
+  const navigate=useNavigate();
+  const [userData, setUserData] = useState({});
   const [showNotifications, setShowNotifications] = useState(false);
   const handleRecentEntriesClick = () => {
     setShowNotifications((prevState) => !prevState);
   };
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      navigate('/login');
+      return;
+    }
+
+    UserService.getProfile()
+      .then((response) => {
+        console.log("Full API Response:", response);
+        localStorage.setItem('userDetails', JSON.stringify(response)); 
+        if (response && response.user) {
+          setUserData(response.user);
+        } else {
+          console.error("Invalid response format:", JSON.stringify(response));
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching user data:", error);
+        if (error.response?.status === 401) {
+          localStorage.removeItem('token');
+          navigate('/login');
+        }
+      });
+  }, [navigate]);
 
   useEffect(() => {
     const scrollRevealOption = {
@@ -121,7 +150,7 @@ function About(){
            <div className='icons1'>
             
             <a href='/Addcar'><p><b>ADD YOUR VEHICLE</b></p></a>
-            <a href='/AddGarage'>< BsCarFront  className='iconAdd'/></a>
+            <a href='/Addcar'>< BsCarFront  className='iconAdd'/></a>
             </div> 
             <div className='icons2'>
             

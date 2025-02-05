@@ -14,6 +14,8 @@ function AddCar() {
     transmission: "",
     registeredYear: "",
     vehicleNumber:"",
+    emergencyContact:"",
+    visualModifications:""
   });
 
   const handleChange = (e) => {
@@ -40,6 +42,8 @@ function AddCar() {
       transmission: "",
       registeredYear: "",
       vehicleNumber:"",
+      emergencyContact:"",
+      visualModifications:""
     });
     alert("Car Registered Successfully");
         navigate('/MyProfile');
@@ -158,6 +162,7 @@ function AddCar() {
             </div>
             </td>
             
+            
             <td>
             <div className="form-group">
             <label> Vehicle Number</label>
@@ -166,6 +171,34 @@ function AddCar() {
               name="vehicleNumber"
               value={formData.vehicleNumber}
               onChange={handleChange}
+              required
+            />
+            </div>
+            </td>
+            </tr>
+            <tr>
+            <td>
+            <div className="form-group">
+            <label>Emergency Contact Number</label>
+            <input
+              type="text"
+              name="emergencyContact"
+              value={formData.emergencyContact}
+              onChange={handleChange}
+              required
+            />
+            </div>
+            </td>
+
+            <td>
+            <div className="form-group">
+            <label> Unique Visual Modifications</label>
+            <input
+              type="text"
+              name="visualModifications"
+              value={formData.visualModifications}
+              onChange={handleChange}
+              placeholder="if no modification state None"
               required
             />
             </div>

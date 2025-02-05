@@ -32,7 +32,7 @@ function Login() {
                     localStorage.setItem('rememberMe', true);
                 }
 
-                navigate('/MyProfile'); 
+                navigate('/HomePage'); 
             } else {
                 setError(userData.error || "Invalid credentials");
             }

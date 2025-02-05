@@ -1,7 +1,7 @@
 .notification-panel {
     width: 80%;
     min-height: 100%;
-    background-color: #b9ecec;
+    background-color: #0f1227;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin-bottom: 100px;
@@ -13,7 +13,7 @@
   .notification-panel h3 {
     font-size: 1.5rem;
     font-weight: bold;
-    color: #333;
+    color: #ffffff;
     margin-bottom: 10px;
     text-align: center;
     font-size: 50px;
@@ -42,5 +42,9 @@
   .notification-item p {
     font-size: 1rem;
     color: #98c6d1;
+  }
+
+  .status-lost{
+    color: red;
   }
   

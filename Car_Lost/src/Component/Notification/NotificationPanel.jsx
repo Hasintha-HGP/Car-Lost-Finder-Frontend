@@ -30,15 +30,14 @@ function LostVehiclePanel() {
         <div className="notifications-container">
           {lostVehicles.map(vehicle => (
             <div key={vehicle.id} className="notification-item">
-              <strong>{vehicle.vehicleNumber}</strong>
-              <p>Owner: {vehicle.ownerName}</p>
+              <strong>{vehicle.vehicleNumber}</strong><h4 className="status-lost">{vehicle.status}</h4>
+              <p>Name of the Owner: {vehicle.ownerName}</p>
               <p>Brand: {vehicle.brand} ({vehicle.model})</p>
-              <p>Produced Year: {vehicle.producedYear}</p>
-              <p>Registered Year: {vehicle.registeredYear}</p>
               <p>Transmission: {vehicle.transmission}</p>
               <p>Stolen Location: {vehicle.stolenLocation}</p>
               <p>Stolen Date: {new Date(vehicle.stolenTimeStamp).toLocaleString()}</p>
-              <p className="status lost">{vehicle.status}</p>
+              <p>If you have any information please contact: {vehicle.emergencyContact}</p>
+              <p>Special Visual Modifications {vehicle.visualModifications}</p>
             </div>
           ))}
         </div>

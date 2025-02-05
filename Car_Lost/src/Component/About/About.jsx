@@ -148,6 +148,15 @@ function About(){
             
         </div>
         {showNotifications && <NotificationPanel />}
+        <div className='garagesearch'>
+          <h4>Find The Garage Near Your City</h4>
+        <form action="" class="search-bar">
+	      <input type="search" name="search" pattern=".*\S.*" placeholder='Enter City' />
+	      <button class="search-btn" type="submit">
+		    <span>Search</span>
+	      </button>
+        </form>
+        </div>
         <div className='about_us' id='About_us'>
         <h4>About Us</h4>
         <p>Welcome to Car Finder Website, your trusted platform for safeguarding your vehicle information and personal details. Our mission is to provide a secure and reliable solution for managing your vehicle records while prioritizing your privacy.</p>
@@ -155,6 +164,7 @@ function About(){
         <p>With features like vehicle registration, status updates, and community-driven collaboration, we aim to make managing and protecting your vehicle details seamless and stress-free. Rest assured, your trust and security are our top priorities.</p>
         <p>Join us today and experience a platform where privacy meets reliability.</p>
         </div>
+        
         <div className='contact_us' id='contact_us'>
         <hr></hr>
         <h4>Contact Us</h4>

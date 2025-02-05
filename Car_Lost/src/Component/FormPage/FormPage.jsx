@@ -1,21 +1,43 @@
 import React, { useState } from "react";
+import CarService from "../Service/CarService"; 
 import "./FormPage.css";
 
 const FormPage = () => {
   const [formData, setFormData] = useState({
     vehicleNumber: "",
     location: "",
-    dateTime: "",
     status: "",
   });
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert(JSON.stringify(formData, null, 2));
+
+    // Validate status field
+    if (formData.status !== "LOST" && formData.status !== "FOUND") {
+      alert('Please enter a valid status: "Lost" or "Found"');
+      return;
+    }
+
+    try {
+      // Call the updateCar function from CarService
+      const response = await CarService.updateCarDetails(formData);
+      
+      // Set success message
+      setSuccessMessage("Car details updated successfully!");
+      setErrorMessage(""); // Clear any previous error message
+      setFormData({ vehicleNumber: "", location: "", status: "" }); // Reset form
+    } catch (error) {
+      // Handle error
+      const errorMessage = error.response ? error.response.data : error.message;
+      setSuccessMessage(""); // Clear any previous success message
+      setErrorMessage(`Error updating car details: ${errorMessage}`);
+    }
   };
 
   return (
@@ -48,17 +70,6 @@ const FormPage = () => {
           </div>
 
           <div className="form-group">
-            <label>Date & Time</label>
-            <input
-              type="datetime-local"
-              name="dateTime"
-              value={formData.dateTime}
-              onChange={handleChange}
-              required
-            />
-          </div>
-
-          <div className="form-group">
             <label>Status</label>
             <input
               type="text"
@@ -72,6 +83,9 @@ const FormPage = () => {
 
           <button type="submit" className="submit-btn">Submit</button>
         </form>
+
+        {successMessage && <p className="success-message">{successMessage}</p>}
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
       </div>
     </div>
   );

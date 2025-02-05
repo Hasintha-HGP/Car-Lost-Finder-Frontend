@@ -50,6 +50,7 @@ function Profile() {
       CarService.getCar(ownerId)
         .then((carResponse) => {
           console.log("Full API Car Response:", carResponse);
+          localStorage.setItem('carDetails', JSON.stringify(carResponse))
           if (carResponse && carResponse.cars) {
             setCarData(carResponse.cars);
           } else {

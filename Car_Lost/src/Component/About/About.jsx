@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState,useEffect } from 'react';
 import ScrollReveal from 'scrollreveal';
 import './About.css';
 import Navi from '../Navigation/navi.jsx';
@@ -11,11 +11,11 @@ import { BsCarFront } from "react-icons/bs";
 import { BsFillHousesFill } from "react-icons/bs";
 import { BsBellFill } from "react-icons/bs";
 import { BsFillPinMapFill } from "react-icons/bs";
+import NotificationPanel from '../Notification/NotificationPanel.jsx/'; 
 
 function About(){
   
-  
-
+  const [showNotifications, setShowNotifications] = useState(false);
   const handleRecentEntriesClick = () => {
     setShowNotifications((prevState) => !prevState);
   };
@@ -137,16 +137,17 @@ function About(){
             </div>
             <div className='icons3'>
             
-            <a onClick={showNotifications}><p><b>RECENT ENTRIES</b></p></a>
-            <a onClick={showNotifications}>< BsBellFill  className='iconAdd'/></a>
+            <a onClick={handleRecentEntriesClick}><p><b>RECENT ENTRIES</b></p></a>
+            <a onClick={handleRecentEntriesClick}>< BsBellFill  className='iconAdd'/></a>
             </div>  
             <div className='icons3'>
             
             <a href='/AddGarage'><p><b>ADD YOUR GARAGE</b></p></a>
             <a href='/AddGarage'>< BsFillHousesFill  className='iconAdd'/></a>
             </div>  
-            {showNotifications && <NotificationPanel />}
+            
         </div>
+        {showNotifications && <NotificationPanel />}
         <div className='about_us' id='About_us'>
         <h4>About Us</h4>
         <p>Welcome to Car Finder Website, your trusted platform for safeguarding your vehicle information and personal details. Our mission is to provide a secure and reliable solution for managing your vehicle records while prioritizing your privacy.</p>

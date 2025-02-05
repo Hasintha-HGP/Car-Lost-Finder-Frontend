@@ -80,6 +80,7 @@ html {
 }
 .iconAdd :hover{
   color: rgba(78, 215, 156, 0.796);
+  cursor: pointer;
   
 }
 .icons2{
@@ -107,6 +108,7 @@ html {
     text-align: center;
     font-size: 22px;
     font-family: 'Poppins', sans-serif;
+    cursor: pointer;
     
 }
 

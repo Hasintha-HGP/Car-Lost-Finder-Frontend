@@ -22,7 +22,7 @@ const Footer = () => {
           <ul>
             <li><a href="/HomePage#About_us">About</a></li>
             <li><a href="/HomePage">Services</a></li>
-            <li><a href="/HomePage">Contact</a></li>
+            <li><a href="/HomePage#contact_us">Contact</a></li>
             <li><a href="#">Privacy Policy</a></li>
           </ul>
         </div>

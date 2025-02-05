@@ -155,10 +155,20 @@ function About(){
         <p>With features like vehicle registration, status updates, and community-driven collaboration, we aim to make managing and protecting your vehicle details seamless and stress-free. Rest assured, your trust and security are our top priorities.</p>
         <p>Join us today and experience a platform where privacy meets reliability.</p>
         </div>
+        <div className='contact_us' id='contact_us'>
+        <hr></hr>
+        <h4>Contact Us</h4>
+        <p>011-3245606   ||   0715345670</p>
+        <p>University of Kelaniya,Dalugama,Sri Lanka</p>
+        <p>lostcarfindlk@gmail.com</p>
+        <hr></hr>
+        </div>
         <div className='Review'>
         <h4>Add Online Review</h4>
         <p>Share your experience with us! Your feedback helps us improve and assists others in making the best choice</p>
         </div>
+        
+       
         <div className='About_image1'>
         <div className='About_image1'>
             <img src={chose}></img>

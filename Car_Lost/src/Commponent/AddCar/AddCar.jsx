@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import "./AddCar.css"; 
+import { useNavigate } from "react-router-dom";
 
 function AddCar() {
+  const navigate=useNavigate();
   const [formData, setFormData] = useState({
     ownerId: "",
     ownerName: "",
@@ -10,31 +12,83 @@ function AddCar() {
     producedYear: "",
     transmission: "",
     registeredYear: "",
-    carPhotos: null,
+    vehicleNumber:"",
   });
 
   const handleChange = (e) => {
-    const { name, value, files } = e.target;
-    if (name === "carPhotos") {
-      setFormData({ ...formData, [name]: files }); 
-    } else {
+    const { name, value, } = e.target;
       setFormData({ ...formData, [name]: value });
-    }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
-    console.log(formData);
-    // Add your form submission logic here
-  };
+    
+    
+    try{
+    const carData={...formData}
+    await CarService.register(carData);
+
+    localStorage.setItem('carData',JSON.stringify(carData));
+
+    setFormData({
+      ownerId: "",
+      ownerName: "",
+      brand: "",
+      model: "",
+      producedYear: "",
+      transmission: "",
+      registeredYear: "",
+      vehicleNumber:"",
+    });
+    alert("Car Registered Successfully");
+        navigate('/MyProfile');
+  }
+      catch(error){
+  console.error('Error Registering Car',error);
+        alert('An error occcured while registering Car');
+}
+};
 
   return (
     <div className="wrapper">
       <div className="form-container">
         <h2>Add New Car</h2>
         <form onSubmit={handleSubmit} className="form">
-          <table cellSpacing={37}><tr><td>
-          <div className="form-group">
+          
+          <table cellSpacing={37}>
+          <tr>
+            <td>
+            <div className="form-group">
+            <label>Owner NIC</label>
+            <input
+              type="text"
+              name="ownerId"
+              value={formData.ownerId}
+              onChange={handleChange}
+              required
+            />
+            </div>
+            </td>
+            
+            <td>
+            <div className="form-group">
+            <label>Owner Name</label>
+            <input
+              type="text"
+              name="ownerName"
+              value={formData.ownerName}
+              onChange={handleChange}
+              required
+            />
+            </div>
+            </td>
+            
+          </tr>
+
+          <tr>
+            
+            <td>
+            <div className="form-group">
             <label>Brand</label>
             <input
               type="text"
@@ -43,9 +97,11 @@ function AddCar() {
               onChange={handleChange}
               required
             />
-          </div>
-          </td><td>
-          <div className="form-group">
+            </div>
+            </td>
+          
+            <td>
+            <div className="form-group">
             <label>Model</label>
             <input
               type="text"
@@ -54,10 +110,13 @@ function AddCar() {
               onChange={handleChange}
               required
             />
-          </div>
-          </td></tr>
-          <tr><td>
-          <div className="form-group">
+            </div>
+            </td>
+          </tr>
+          <tr>
+            
+            <td>
+            <div className="form-group">
             <label>Produced Year</label>
             <input
               type="text"
@@ -66,9 +125,11 @@ function AddCar() {
               onChange={handleChange}
               required
             />
-          </div>
-          </td><td>
-          <div className="form-group">
+            </div>
+            </td>
+          
+            <td>
+            <div className="form-group">
             <label>Transmission</label>
             <input
               type="text"
@@ -77,10 +138,14 @@ function AddCar() {
               onChange={handleChange}
               required
             />
-          </div>
-          </td></tr>
-          <tr><td>
-          <div className="form-group">
+            </div>
+            </td>
+            
+          </tr>
+          <tr>
+            
+            <td>
+            <div className="form-group">
             <label>Registered Year</label>
             <input
               type="text"
@@ -89,21 +154,23 @@ function AddCar() {
               onChange={handleChange}
               required
             />
-          </div>
-          </td><td>
-         <div className="form-group">
-            <label htmlFor="carPhotos">Upload Car Photos</label>
+            </div>
+            </td>
+            
+            <td>
+            <div className="form-group">
+            <label> Vehicle Number</label>
             <input
-              type="file"
-              id="carPhotos"
-              name="carPhotos"
-              accept="image/*"
-              multiple
+              type="text"
+              name="vehicleNumber"
+              value={formData.vehicleNumber}
               onChange={handleChange}
               required
             />
-         </div>
-         </td></tr>
+            </div>
+            </td>
+            
+            </tr> 
          </table>
           <button type="submit" className="submit-button1">Add Car</button>
         </form>

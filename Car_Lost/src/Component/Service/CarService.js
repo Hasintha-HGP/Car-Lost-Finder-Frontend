@@ -30,19 +30,29 @@ class CarService {
     }
 
     // Update car details
+   
     static async updateCarDetails(carData) {
         try {
-            const response = await axios.put(`${CarService.BASE_URL}update/${vehicleNumber}`, carData, {
-                headers: {
-                    "Content-Type": "application/json"
+            // ✅ Use vehicleNumber in the URL and send the rest in the request body
+            const response = await axios.put(
+                `${CarService.BASE_URL}update-status/${carData.vehicleNumber}`,  // vehicleNumber in URL
+                {
+                    newLocation: carData.newLocation,  // Only sending the required fields
+                    status: carData.status
+                },
+                {
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
                 }
-            });
+            );
             return response.data;
         } catch (error) {
             console.error("Error updating car details:", error);
             throw error.response ? error.response.data : error;
         }
     }
+    
 }
 
 export default CarService;

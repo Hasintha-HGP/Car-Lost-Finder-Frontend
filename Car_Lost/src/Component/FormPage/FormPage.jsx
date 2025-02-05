@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import CarService from "../Service/CarService"; 
 import "./FormPage.css";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const FormPage = () => {
+  const navigate=useNavigate();
   const [formData, setFormData] = useState({
     vehicleNumber: "",
-    location: "",
+    newLocation: "",
     status: "",
   });
   const [successMessage, setSuccessMessage] = useState("");
@@ -25,18 +27,16 @@ const FormPage = () => {
     }
 
     try {
-      // Call the updateCar function from CarService
       const response = await CarService.updateCarDetails(formData);
-      
-      // Set success message
-      setSuccessMessage("Car details updated successfully!");
-      setErrorMessage(""); // Clear any previous error message
-      setFormData({ vehicleNumber: "", location: "", status: "" }); // Reset form
-    } catch (error) {
-      // Handle error
-      const errorMessage = error.response ? error.response.data : error.message;
-      setSuccessMessage(""); // Clear any previous success message
-      setErrorMessage(`Error updating car details: ${errorMessage}`);
+
+  setSuccessMessage(response.message || "Car details updated successfully!");
+  setErrorMessage("");
+  setFormData({ vehicleNumber: "", newLocation: "", status: "" }); 
+  navigate("/MyProfile");
+} catch (error) {
+  const errorMessage = error.response?.data?.message || error.response?.data || error.message;
+  setSuccessMessage("");
+  setErrorMessage(`Error updating car details: ${errorMessage}`);
     }
   };
 
@@ -61,8 +61,8 @@ const FormPage = () => {
             <label>Location</label>
             <input
               type="text"
-              name="location"
-              value={formData.location}
+              name="newLocation"
+              value={formData.newLocation}
               onChange={handleChange}
               required
               placeholder="Enter Location"

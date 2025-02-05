@@ -2,7 +2,7 @@
 
 
 
-.wrapper {
+.wrapper2 {
   font-family: 'Poppins', sans-serif; 
   background: url('../Images/Home/homeorg.jpg') no-repeat center center fixed; 
   background-size: cover; 
@@ -17,7 +17,7 @@
 
 
 
-.form-container {
+.form-container2 {
   width: 700px;
   
   background: rgba(255, 255, 255, 0.1); 
@@ -29,16 +29,16 @@
   margin-top: 78px;
   margin-bottom: 54px;
 }
-.form-container  table{
+.form-container1  table{
   width: 600px;
   margin-left: 20px;
 }
-.form-container  table td{
+.form-container1  table td{
   width: 250px;
 }
 
 
-.form-container:hover {
+.form-container1:hover {
   transform: translateY(-5px);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
 }

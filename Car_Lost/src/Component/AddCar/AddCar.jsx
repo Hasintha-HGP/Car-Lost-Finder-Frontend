@@ -51,8 +51,8 @@ function AddCar() {
 };
 
   return (
-    <div className="wrapper">
-      <div className="form-container">
+    <div className="wrapper2">
+      <div className="form-container2">
         <h2>Add New Car</h2>
         <form onSubmit={handleSubmit} className="form">
           

@@ -33,7 +33,7 @@ function NotificationPanel() {
 
   return (
     <div className="notification-panel">
-      <h3>Recent Notifications</h3>
+      <h3>Recent Entries</h3>
       <div className="notifications-container">
         {notifications.map((notification) => (
           <div key={notification.id} className="notification-item">

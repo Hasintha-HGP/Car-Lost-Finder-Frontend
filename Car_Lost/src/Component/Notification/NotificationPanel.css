@@ -1,0 +1,44 @@
+.notification-panel {
+    width: 100%;
+    min-height: 800px;
+    background-color: #b9ecec;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 50px;
+    padding-top: 30px;
+  }
+  
+  .notification-panel h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 50px;
+    margin-bottom: 30px;
+    
+  }
+  
+  .notifications-container {
+    max-height: 500px;
+    overflow-y: auto;
+  }
+  
+  .notification-item {
+    padding: 10px;
+    background-color: #fff;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .notification-item strong {
+    font-weight: bold;
+    color: #4CAF50;
+  }
+  
+  .notification-item p {
+    font-size: 1rem;
+    color: #98c6d1;
+  }
+  

@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Home from './Commponent/Home/Home.jsx';
 import About from './Commponent/About/About.jsx';
@@ -13,14 +13,12 @@ import './App.css'
 import { Route, Routes } from 'react-router-dom';
 import Login from './Commponent/Login/Login.jsx';
 import Register from './Commponent/Register/Register.jsx';
-import NotificationPanel from './Commponent/Notification/NotificationPanel.jsx';
+import Footer from './Commponent/Footer/Footer.jsx';
 
 
 function App() {
-  
-
   return (
-    <>
+    
        <Routes>
         <Route path='/' element={<Home/>} />
         <Route path='/Register' element={<Register/>} />
@@ -31,11 +29,9 @@ function App() {
         <Route path='/Addcar' element={<AddCar/>} />
         <Route path='/AddGarage' element={<AddGarage/>} />
         <Route path='/Logout' element={<Home/>} />
-        <Route path='/notification' element={<Notification/>} />
         
        </Routes>
-    </>
-  )
+  );
 }
 
-export default App
+export default App;

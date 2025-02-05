@@ -1,0 +1,324 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.about {
+  background: linear-gradient(to left, #141e30 , #243b55); ; 
+    background-size: cover; 
+    background-attachment: fixed; 
+    width: 100%;
+    min-height: 100vh; 
+    overflow: hidden;
+    
+}
+html {
+  scroll-behavior: smooth;
+}
+
+.aboutmain{
+    
+    opacity: 0.9;
+    width: 650px;
+    height:525px;
+    margin-left: 50px;
+    border-radius: 11px;
+    margin-top: -330px;
+    background-color: rgba(39, 36, 35, 0.715);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.aboutmain:hover{
+    transform: translateX(-5px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.6);
+}
+
+
+.aboutmain h1{
+    text-align: center;
+    font-size: 40px;
+    color:white;
+    margin-top: 0;
+    text-align: center;
+    margin-bottom: 50PX;
+    font-family: 'Poppins', sans-serif;
+    padding-top: 30px;
+    
+}
+.aboutmain p{
+    color:white;
+    text-align: center;
+    font-size: 25PX;
+    padding: 20px;
+    margin-top: -50px;
+    
+    line-height: 2.5rem;
+    
+}
+.icons{
+    display: grid;
+    grid-template-columns: auto auto auto auto; 
+    gap:-1000px;
+    padding-top: 10px;
+    padding-left: 50px;
+    padding-bottom: 80px;
+    margin-top: 100px;
+    
+}
+.icons1{
+    height: 17rem;
+    width:20rem;
+    
+    border-radius: 5%;
+    background-color: rgba(0, 0, 0, 0.653);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.iconAdd{
+  color: rgb(161, 187, 198);
+  width: 200px;
+  height: 150px;
+  margin-top: 30px;
+  margin-left: 60px;
+}
+.iconAdd :hover{
+  color: rgba(78, 215, 156, 0.796);
+  cursor: pointer;
+  
+}
+.icons2{
+    height: 17rem;
+    width:20rem;
+    
+    border-radius: 5%;
+    background-color: rgba(0, 0, 0, 0.653);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+}
+.icons3{
+    height: 17rem;
+    width:20rem;
+    
+    border-radius: 5%;
+    background-color:  rgba(0, 0, 0, 0.653);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+}
+.icons a p{
+    color: white;
+    text-align: center;
+    font-size: 22px;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    
+}
+
+
+
+.imag1 img{
+    height: 500px;
+    width: 100%;
+    margin-top: 0px;
+}
+
+.About_container {
+    padding-top: 5rem;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    flex-direction: column; 
+    margin-left: 600px;
+    margin-top: -700px;
+}
+
+.About_image {
+    position: relative;
+    isolation: isolate;
+    overflow: visible; 
+    width: 700px; 
+    text-align: center; 
+}
+
+.About_image img {
+    position: relative;
+    z-index: 1; 
+    width: 100%; 
+    height: auto; 
+    border-radius: 10px; 
+}
+
+.About_image::before {
+    position: absolute;
+    content: "";
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+   
+    opacity: 0.2;
+    border-radius: 10px; 
+    z-index: 0; 
+}
+.work_section {
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: white;
+    line-height: 3.25rem;
+    text-align: center;
+  }
+  
+  .work_section_description {
+    color: white;
+    text-align: center;
+    line-height: 1.5rem;
+  }
+  
+  .about__grid {
+    display: grid; 
+    grid-template-columns: auto auto auto auto; 
+    gap:30px; 
+    margin-left: -385px;
+    padding-top: 10px;
+    padding-bottom: 50px;
+    margin-top: 30px;
+    flex-wrap: wrap; 
+}
+
+.about__card {
+    height: 8rem;
+    width: 20rem;
+    margin-inline: auto;
+    text-align: center;
+    background-color: rgba(20, 28, 30, 0.422); 
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about__card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3); 
+}
+
+
+
+@media (max-width: 768px) {
+    .about__grid {
+      flex-direction: column; 
+    }
+  }
+
+  
+  .about__card h4 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: white;
+  }
+  
+  .about__card p {
+    color: white;
+    line-height: 1.5rem;
+  }
+  .work {
+    max-width: 600px;
+    margin-inline: auto;
+    margin-bottom: 4rem;
+  }
+  .about_us{
+    max-width: 1200px;
+    margin-inline: auto;
+    margin-bottom: 4rem;
+    scroll-behavior: smooth;
+  }
+  .about_us h4 {
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: white;
+    line-height: 3.25rem;
+    text-align: center;
+  }
+  .about_us p {
+    color: white;
+    text-align: center;
+    line-height: 2.0rem;
+  }
+  .contact_us{
+    margin-top: 50px;
+    max-width: 1200px;
+    margin-inline: auto;
+    margin-bottom: 4rem;
+  }
+  .contact_us h4 {
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: white;
+    line-height: 3.25rem;
+    text-align: center;
+  }
+  .contact_us p {
+    color: white;
+    
+    text-align: center;
+    line-height: 2.3rem;
+  }
+  .Review h4 {
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: white;
+    line-height: 3.25rem;
+    text-align: center;
+  }
+  .Review p {
+    color: white;
+    line-height: 1.5rem;
+    text-align: center;
+  }
+  .Reviews{
+    
+    opacity: 0.9;
+    width: 650px;
+    height:100%;
+    
+    border-radius: 11px;
+    margin-top: -580px;
+    margin-left: 800px;
+    background-color: rgba(39, 36, 35, 0.715);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 290px;
+}
+.About_image1 {
+    position: relative;
+    isolation: isolate;
+    overflow: visible; 
+    width: 1000px; 
+    text-align: center;
+    margin-top: 0px;
+    margin-left: -120px;
+}
+
+.About_image1 img {
+    position: relative;
+    z-index: 1; 
+    width: 100%; 
+    height: auto; 
+    border-radius: 10px; 
+}
+
+.About_image1::before {
+    position: absolute;
+    content: "";
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+   
+    opacity: 0.2;
+    border-radius: 10px; 
+    z-index: 0; 
+}
+

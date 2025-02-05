@@ -2,7 +2,7 @@
 
 
 
-.wrapper {
+.wrapper2 {
   font-family: 'Poppins', sans-serif; 
   background: url('../Images/Home/homeorg.jpg') no-repeat center center fixed; 
   background-size: cover; 
@@ -17,8 +17,8 @@
 
 
 
-.form-container {
-  width: 700px;
+.form-container2 {
+  width: 900px;
   
   background: rgba(255, 255, 255, 0.1); 
   backdrop-filter: blur(12px);
@@ -93,7 +93,7 @@ input:focus {
 
 .submit-button1 {
   padding: 12px 20px;
-  background-color: #84b5ea;
+  background-color: black;
   border: none;
   border-radius: 8px;
   color: #ffffff;

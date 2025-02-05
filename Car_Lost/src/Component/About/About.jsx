@@ -74,7 +74,7 @@ function About(){
      <div className='imag1'>
             <img src={Traff}></img>
      </div>
-        
+     
         <div className='aboutmain'>
             <h1><ins><b>WHAT WE OFFER</b></ins></h1>
             <p>WELCOME TO OUR CAR FINDING SYSTEM! WE OFFER A RELIABLE PLATFOAM FOR USERS TO REGISTER THEIR VEHICLES, MAINTAIN RECORDS,  AND QUIKLY UPDATE THEIR STATUS IN

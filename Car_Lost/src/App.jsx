@@ -7,6 +7,7 @@ import Profile from './Component/Profile/Profile.jsx';
 import AddCar from './Component/AddCar/AddCar.jsx';
 import AddGarage from './Component/AddGarge/AddGarge.jsx';
 import CarStatus from './Component/FormPage/FormPage.jsx'
+import UpdatePage from './Component/Service/UpdateUser.jsx'
 
 import './App.css';
 
@@ -26,6 +27,7 @@ function App() {
         <Route path='/AddGarage' element={<AddGarage />} />
         <Route path='/Logout' element={<Home />} />
         <Route path='/CarStatus' element={<CarStatus />} />
+        <Route path='/updateUser' element={<UpdatePage />} />
        </Routes>
   );
 }

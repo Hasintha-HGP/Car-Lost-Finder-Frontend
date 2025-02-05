@@ -68,15 +68,15 @@ class UserService {
         try {
             const response = await axios.post(`${UserService.BASE_URL}/auth/login`, { email, password });
 
-            // Assuming the response contains the user data and token
+            
             const { token, role } = response.data;
 
-            // Store token and role
+            
             localStorage.setItem("token", token);
             localStorage.setItem("role", role);
 
-            // Fetch user's profile and store the name
-            const profile = await UserService.getProfile(); // Get profile using the token
+            
+            const profile = await UserService.getProfile(); 
             if (profile && profile.name) {
                 localStorage.setItem("userName", profile.name);
             }
@@ -117,10 +117,10 @@ class UserService {
     }
 
     static async updateUser(userId, userData) {
-        return await UserService.makeAuthorizedRequest("put", `/admin/update/${userId}`, userData);
+        return await UserService.makeAuthorizedRequest("put", `/update/${userId}`, userData);
     }
 
-    /** Authentication Methods */
+    
     
     static logout() {
         localStorage.removeItem("token");

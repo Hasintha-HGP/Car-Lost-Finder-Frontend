@@ -5,12 +5,14 @@ import Footer from '../Footer/Footer.jsx';
 import UserService from '../Service/UserService.js';
 import { Link, useNavigate } from 'react-router-dom';
 import CarService from '../Service/CarService.js';
+import UpdateUser from '../Service/UpdateUser.jsx';  
 
 function Profile() {
   const [userData, setUserData] = useState({});
   const [carData, setCarData] = useState([]);
   const [showUserInfo, setShowUserInfo] = useState(true);
   const [showCarInfo, setShowCarInfo] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);  // Modal state
 
   const navigate = useNavigate();
 
@@ -75,6 +77,11 @@ function Profile() {
     } catch (error) {
       console.error('Logout failed:', error);
     }
+  };
+
+  // Toggle Modal visibility
+  const toggleModal = () => {
+    setIsModalOpen(!isModalOpen);
   };
 
   return (
@@ -142,10 +149,13 @@ function Profile() {
         {/* Bottom actions */}
         <div className="bottom-actions">
           <button onClick={handleLogout} className="logout">Logout</button>
-          <button className="edit_profile"><Link to='/Register'>Edit Profile</Link></button>
+          <button onClick={toggleModal} className="edit_profile">Edit Profile</button>
           <button className="add_car"><Link to='/Addcar'>Add Car</Link></button>
           <button className="add_garage"><Link to='/AddGarage'>Add Garage</Link></button>
         </div>
+
+        {/* Modal for editing profile */}
+        {isModalOpen && <UpdateUser closeModal={toggleModal} />}
       </div>
       <Footer />
     </>

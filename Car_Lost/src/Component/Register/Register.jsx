@@ -48,7 +48,7 @@ const navigate = useNavigate();
           
         });
         alert("User Registered Successfully");
-        navigate('/login');
+        navigate('/Login');
       }
   }catch(error){
 

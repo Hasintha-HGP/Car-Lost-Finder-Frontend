@@ -123,7 +123,7 @@ function About() {
                 <b>ADD YOUR VEHICLE</b>
               </p>
             </a>
-            <a href="/AddGarage">
+            <a href="/Addcar">
               <BsCarFront className="iconAdd" />
             </a>
           </div>

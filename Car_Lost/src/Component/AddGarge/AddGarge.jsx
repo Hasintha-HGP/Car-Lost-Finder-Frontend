@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import axios from "axios";
 import "./AddGarage.css";
+import { useNavigate } from "react-router-dom";
 
 const AddGarage = () => {
   const [formData, setFormData] = useState({
@@ -10,14 +12,27 @@ const AddGarage = () => {
     garageSpecialization: "",
   });
 
+  const [responseMessage, setResponseMessage] = useState(""); 
+  const navigate=useNavigate();
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
-    
+    try {
+      const response = await axios.post("http://localhost:8080/registerGarage", formData); 
+      if (response.status === 200) {
+        alert("Garage added successfully!");
+        navigate("/Myprofile");
+      } else {
+        setResponseMessage("Failed to add garage.");
+      }
+    } catch (error) {
+      console.error("There was an error!", error);
+      setResponseMessage("Error adding garage. Please try again.");
+    }
   };
 
   return (
@@ -25,6 +40,17 @@ const AddGarage = () => {
       <div className="form-container1">
         <h2>Add New Garage</h2>
         <form className="form1" onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label htmlFor="ownerId">NIC of the Owner</label>
+            <input
+              type="text"
+              id="ownerId"
+              name="ownerId"
+              value={formData.ownerId}
+              onChange={handleChange}
+              required
+            />
+          </div>
           <div className="form-group">
             <label htmlFor="garageName">Garage Name</label>
             <input
@@ -48,11 +74,12 @@ const AddGarage = () => {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="garageHome">Garage Home</label>
+            <label htmlFor="garageHome">Garage Home City</label>
             <input
               type="text"
               id="garageHome"
               name="garageHome"
+              placeholder="Kandy,Colombo likewise"
               value={formData.garageHome}
               onChange={handleChange}
               required
@@ -72,8 +99,9 @@ const AddGarage = () => {
           </div>
           <button type="submit" className="submit-button">Add Garage</button>
         </form>
+
       </div>
-    </div>  
+    </div>
   );
 };
 

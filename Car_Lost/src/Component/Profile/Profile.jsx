@@ -6,13 +6,16 @@ import UserService from '../Service/UserService.js';
 import { Link, useNavigate } from 'react-router-dom';
 import CarService from '../Service/CarService.js';
 import UpdateUser from '../Service/UpdateUser.jsx';  
+import GarageService from '../Service/GarageService.js';
 
 function Profile() {
   const [userData, setUserData] = useState({});
   const [carData, setCarData] = useState([]);
+  const [garageData, setGarageData] = useState([]);
   const [showUserInfo, setShowUserInfo] = useState(true);
   const [showCarInfo, setShowCarInfo] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);  // Modal state
+  const [showGarageInfo, setShowgarageInfo] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);  
 
   const navigate = useNavigate();
 
@@ -66,6 +69,29 @@ function Profile() {
     }
   }, [userData.nic, navigate]);
 
+  useEffect(() => {
+    const ownerId = userData.nic; 
+    if (ownerId) {
+      GarageService.getGarage(ownerId)
+        .then((garageResponse) => {
+          console.log("Full API Garage Response:", garageResponse);
+          localStorage.setItem('garageDetails', JSON.stringify(garageResponse))
+          if (garageResponse && garageResponse.garages) {
+            setGarageData(garageResponse.garages);
+          } else {
+            console.error("Invalid response format:", garageResponse);
+          }
+        })
+        .catch((error) => {
+          console.error("Error fetching garage data:", error);
+          if (error.response?.status === 401) {
+            localStorage.removeItem('token');
+            navigate('/login');
+          }
+        });
+    }
+  }, [userData.nic, navigate]);
+
   const handleLogout = async () => {
     try {
       localStorage.removeItem('token');
@@ -80,7 +106,7 @@ function Profile() {
     }
   };
 
-  // Toggle Modal visibility
+  
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
   };
@@ -103,9 +129,12 @@ function Profile() {
           <button onClick={() => setShowCarInfo(!showCarInfo)} className="btnprofile">
             {showCarInfo ? "Hide Vehicles" : "My Vehicles"}
           </button>   
+          <button onClick={() => setShowgarageInfo(!showGarageInfo)} className="btnprofile">
+            {showGarageInfo ? "Hide Garages" : "My Garages"}
+          </button> 
         </div>
 
-        {/* Show user details */}
+        
         {showUserInfo && userData.name && (
           <div className="section user-details">
             <h2>My Details</h2>
@@ -122,7 +151,7 @@ function Profile() {
           </div>
         )}
 
-        {/* Show car details */}
+        
         {showCarInfo && carData.length > 0 && (
           <div className="section vehicle-details">
             <h2>My Vehicles</h2>
@@ -140,6 +169,29 @@ function Profile() {
                     </div>
                   </div>
                 ))}
+              </div>
+            ) : (
+              <p>No vehicles added yet.</p>
+            )}
+          </div>
+        )}
+
+      {showGarageInfo && garageData.length > 0 && (
+          <div className="section vehicle-details">
+            <h2>My Garages</h2>
+            {garageData.length > 0 ? (
+              <div className="card-container">
+                {garageData.map((garage1) => (
+                  <div key={garage1.id || `${garage1.garageName}-${garage1.garageAddress}`} className="card vehicle-card">
+                  <div className="vehicle-info">
+                  <p><strong>Garage Name:</strong> {garage1.garageName}</p>
+                  <p><strong>Address:</strong> {garage1.garageAddress}</p>
+                  <p><strong>Home Town:</strong> {garage1.garageHome}</p>
+                  <p><strong>Specialization :</strong> {garage1.garageSpecialization}</p>
+                </div>
+              </div>
+            ))}
+
               </div>
             ) : (
               <p>No vehicles added yet.</p>

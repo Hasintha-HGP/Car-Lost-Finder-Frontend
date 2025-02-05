@@ -65,7 +65,7 @@ html {
 .icons1{
     height: 17rem;
     width:20rem;
-    
+    padding-top: 30px;
     border-radius: 5%;
     background-color: rgba(0, 0, 0, 0.653);
     box-shadow: 0 8px 20px rgba(0,0,0,0.4);
@@ -86,7 +86,7 @@ html {
 .icons2{
     height: 17rem;
     width:20rem;
-    
+    padding-top: 30px;
     border-radius: 5%;
     background-color: rgba(0, 0, 0, 0.653);
     box-shadow: 0 8px 20px rgba(0,0,0,0.4);
@@ -96,7 +96,7 @@ html {
 .icons3{
     height: 17rem;
     width:20rem;
-    
+    padding-top: 30px;
     border-radius: 5%;
     background-color:  rgba(0, 0, 0, 0.653);
     box-shadow: 0 8px 20px rgba(0,0,0,0.4);
@@ -121,6 +121,7 @@ html {
 }
 
 .About_container {
+ 
     padding-top: 5rem;
     display: flex; 
     justify-content: center; 
@@ -226,6 +227,8 @@ html {
     margin-bottom: 4rem;
   }
   .about_us{
+
+    margin-top: 50px;
     max-width: 1200px;
     margin-inline: auto;
     margin-bottom: 4rem;

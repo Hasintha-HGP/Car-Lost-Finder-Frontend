@@ -20,52 +20,45 @@ function About(){
     setShowNotifications((prevState) => !prevState);
   };
 
-    useEffect(() => {
-        const scrollRevealOption = {
-            distance: "100px",
-            origin: "bottom",
-            duration: 1000,
-        };
+  useEffect(() => {
+    const scrollRevealOption = {
+      distance: "40px",
+      duration: 1200,
+      easing: "ease-in-out",
+      opacity: 0,
+      reset: false,
+    };
 
-        
-        ScrollReveal().reveal(".About_image img", {
-            ...scrollRevealOption,
-            origin: "right",
-        });
+    
+    const revealElement = (selector, customOptions = {}) => {
+      ScrollReveal().reveal(selector, { ...scrollRevealOption, ...customOptions });
+    };
 
-        
-        ScrollReveal().reveal(".aboutmain", {
-            ...scrollRevealOption,
-            delay: 800,
-        });
-        ScrollReveal().reveal(".aboutmain h1", {
-            ...scrollRevealOption,
-            delay: 1000,
-        });
-        ScrollReveal().reveal(".aboutmain p", {
-            ...scrollRevealOption,
-            delay: 1200,
-        });
-        ScrollReveal().reveal(".about__card", {
-            ...scrollRevealOption,
-            interval: 500,
-          });
-          ScrollReveal().reveal(".icons", {
-            ...scrollRevealOption,
-            interval: 500,
-          }); 
-          ScrollReveal().reveal(".About_image1 img", {
-            ...scrollRevealOption,
-            origin:"left",
-            distance: "300px",
-            duration: 2500,
-            opacity: 0,
-             reset: true
-            
-          }); 
-          window.addEventListener("scroll", function() {
-            console.log("Scrolling..."); 
-          });
+    
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotion) return;
+
+    
+    revealElement(".About_image img", { origin: "right" });
+    revealElement(".aboutmain", { delay: 600 });
+    revealElement(".aboutmain h1", { delay: 800 });
+    revealElement(".aboutmain p", { delay: 1000 });
+    revealElement(".about__card", { interval: 400 });
+    revealElement(".icons", { interval: 400 });
+    revealElement(".About_image1 img", {
+      origin: "left",
+      distance: "250px",
+      duration: 1800,
+      reset: true,
+    });
+
+    
+    const handleScroll = () => console.log("Scrolling...");
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
     }, []);
     return(
     <>

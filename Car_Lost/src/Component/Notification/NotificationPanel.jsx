@@ -1,49 +1,50 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import "./NotificationPanel.css";
 
-function NotificationPanel() {
-  // Example static notifications, replace with dynamic data if needed
-  const [notifications] = React.useState([
-    {
-      id: 1,
-      username: "John Doe",
-      message: "Your vehicle status has been updated!",
-    },
-    {
-      id: 2,
-      username: "Jane Smith",
-      message: "A new vehicle has been registered in your area.",
-    },
-    {
-      id: 3,
-      username: "Mark Lee",
-      message: "Someone has reported a vehicle theft in your region.",
-    },
-    {
-      id: 4,
-      username: "Emily Davis",
-      message: "A new comment has been posted on your vehicle registration.",
-    },
-    {
-      id: 5,
-      username: "Chris Brown",
-      message: "Your vehicle status has been marked as 'Recovered'.",
-    },
-  ]);
+function LostVehiclePanel() {
+  const [lostVehicles, setLostVehicles] = useState([]);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    axios.get('http://localhost:8080/lostCars') 
+      .then(response => {
+        if (response.data.statusCode === 200) {
+          setLostVehicles(response.data.cars);
+        } else {
+          setError("No lost vehicles found.");
+        }
+      })
+      .catch(error => {
+        console.error("Error fetching lost vehicles:", error);
+        setError("Failed to fetch lost vehicle data.");
+      });
+  }, []);
 
   return (
     <div className="notification-panel">
-      <h3>Recent Notifications</h3>
-      <div className="notifications-container">
-        {notifications.map((notification) => (
-          <div key={notification.id} className="notification-item">
-            <strong>{notification.username}:</strong>
-            <p>{notification.message}</p>
-          </div>
-        ))}
-      </div>
+      <h3>RECENT ENTRIES</h3>
+      {error ? (
+        <p className="error-message">{error}</p>
+      ) : (
+        <div className="notifications-container">
+          {lostVehicles.map(vehicle => (
+            <div key={vehicle.id} className="notification-item">
+              <strong>{vehicle.vehicleNumber}</strong>
+              <p>Owner: {vehicle.ownerName}</p>
+              <p>Brand: {vehicle.brand} ({vehicle.model})</p>
+              <p>Produced Year: {vehicle.producedYear}</p>
+              <p>Registered Year: {vehicle.registeredYear}</p>
+              <p>Transmission: {vehicle.transmission}</p>
+              <p>Stolen Location: {vehicle.stolenLocation}</p>
+              <p>Stolen Date: {new Date(vehicle.stolenTimeStamp).toLocaleString()}</p>
+              <p className="status lost">{vehicle.status}</p>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
 
-export default NotificationPanel;
+export default LostVehiclePanel;

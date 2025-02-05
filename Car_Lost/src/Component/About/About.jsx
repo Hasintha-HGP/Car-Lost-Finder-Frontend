@@ -128,7 +128,7 @@ function About(){
            <div className='icons1'>
             
             <a href='/Addcar'><p><b>ADD YOUR VEHICLE</b></p></a>
-            <a href='/AddGarage'>< BsCarFront  className='iconAdd'/></a>
+            <a href='/Addcar'>< BsCarFront  className='iconAdd'/></a>
             </div> 
             <div className='icons2'>
             

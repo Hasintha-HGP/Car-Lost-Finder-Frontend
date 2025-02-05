@@ -15,6 +15,11 @@ import { BsFillPinMapFill } from "react-icons/bs";
 function About(){
   
   
+
+  const handleRecentEntriesClick = () => {
+    setShowNotifications((prevState) => !prevState);
+  };
+
     useEffect(() => {
         const scrollRevealOption = {
             distance: "100px",
@@ -132,14 +137,15 @@ function About(){
             </div>
             <div className='icons3'>
             
-            <a href='#'><p><b>RECENT ENTRIES</b></p></a>
-            <a href='#'>< BsBellFill  className='iconAdd'/></a>
+            <a onClick={showNotifications}><p><b>RECENT ENTRIES</b></p></a>
+            <a onClick={showNotifications}>< BsBellFill  className='iconAdd'/></a>
             </div>  
             <div className='icons3'>
             
             <a href='/AddGarage'><p><b>ADD YOUR GARAGE</b></p></a>
             <a href='/AddGarage'>< BsFillHousesFill  className='iconAdd'/></a>
             </div>  
+            {showNotifications && <NotificationPanel />}
         </div>
         <div className='about_us' id='About_us'>
         <h4>About Us</h4>

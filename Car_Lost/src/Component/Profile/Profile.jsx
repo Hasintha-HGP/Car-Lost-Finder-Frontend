@@ -188,6 +188,7 @@ function Profile() {
                   <p><strong>Address:</strong> {garage1.garageAddress}</p>
                   <p><strong>Home Town:</strong> {garage1.garageHome}</p>
                   <p><strong>Specialization :</strong> {garage1.garageSpecialization}</p>
+                  <p><strong>Hotline :</strong> {garage1.garageHotline}</p>
                 </div>
               </div>
             ))}

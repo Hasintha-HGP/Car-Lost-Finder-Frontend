@@ -10,6 +10,7 @@ const AddGarage = () => {
     garageAddress: "",
     garageHome: "",
     garageSpecialization: "",
+    garageHotline:""
   });
 
   const [responseMessage, setResponseMessage] = useState(""); 
@@ -93,6 +94,17 @@ const AddGarage = () => {
               name="garageSpecialization"
               placeholder="EV, Hybrid, PHEV"
               value={formData.garageSpecialization}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="garageHotline">Hotline Number</label>
+            <input
+              type="text"
+              id="garageHotline"
+              name="garageHotline"
+              value={formData.garageHotline}
               onChange={handleChange}
               required
             />

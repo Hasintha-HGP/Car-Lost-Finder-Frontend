@@ -370,14 +370,13 @@ hr{
   background-color: #333;
 }
 
-/* Search icon inside the input field */
 .search-bar input::placeholder {
   color: #888;
-  padding-left: 30px; /* Space for the icon */
+  padding-left: 30px; 
 }
 
 .search-bar input:focus::placeholder {
-  color: #bbb; /* Change the placeholder color on focus */
+  color: #bbb; 
 }
 
 .search-bar .search-btn {

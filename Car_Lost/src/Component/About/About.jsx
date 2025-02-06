@@ -11,15 +11,57 @@ import { BsCarFront } from "react-icons/bs";
 import { BsFillHousesFill } from "react-icons/bs";
 import { BsBellFill } from "react-icons/bs";
 import { BsFillPinMapFill } from "react-icons/bs";
-import NotificationPanel from '../Notification/NotificationPanel.jsx/'; 
+import NotificationPanel from '../Notification/NotificationPanel.jsx'; 
 import { useNavigate } from 'react-router-dom';
 import UserService from '../Service/UserService.js';
+import axios from 'axios';
 
 function About(){
-  
+  const [searchQuery, setSearchQuery] = useState("");
   const navigate=useNavigate();
   const [userData, setUserData] = useState({});
   const [showNotifications, setShowNotifications] = useState(false);
+  const [cityResults, setCityResults] = useState([]);
+  const [showResults, setShowResults] = useState(false);
+  const [nearGarages, setNearGarages] = useState([]);
+  const [error, setError] = useState(null);
+
+
+  const mockCities = [
+    "Kandy", "Los Angeles", "Chicago", "Houston", "Phoenix",
+    "Philadelphia", "San Antonio", "San Diego", "Dallas", "San Jose"
+  ];
+
+  useEffect(() => {
+    if (!searchQuery) return; 
+  
+    axios.get(`http://localhost:8080/garagesNear/${searchQuery}`)
+      .then(response => {
+        if (response.data.statusCode === 200) {
+          setNearGarages(response.data.garages);
+          setError(null);
+        } else {
+          setNearGarages([]);
+          setError("No garages found.");
+        }
+      })
+      .catch(error => {
+        console.error("Error fetching garages:", error);
+        setError("Failed to fetch garages data.");
+      });
+  }, [searchQuery]); 
+  
+
+  
+  const handleSearch = (e) => {
+    e.preventDefault(); 
+    const filteredCities = mockCities.filter(city =>
+      city.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+    setCityResults(filteredCities);
+    setShowResults(filteredCities.length > 0);
+  };
+
   const handleRecentEntriesClick = () => {
     setShowNotifications((prevState) => !prevState);
   };
@@ -80,7 +122,7 @@ function About(){
       duration: 1800,
       reset: true,
     });
-
+    
     
     const handleScroll = () => console.log("Scrolling...");
     window.addEventListener("scroll", handleScroll);
@@ -170,6 +212,37 @@ function About(){
             
         </div>
         {showNotifications && <NotificationPanel />}
+        <div className='garagesearch'>
+          <h4>Find The Garage Near Your City</h4>
+          <form className="search-bar" onSubmit={handleSearch}>
+            <input
+              type="search"
+              name="search"
+              pattern=".*\S.*"
+              placeholder='Enter City'
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+            <button className="search-btn" type="submit">
+              <span>Search</span>
+            </button>
+          </form>
+        </div>
+
+        {showResults && (
+          <div className="search-result-panel">
+          {nearGarages.map(garage => (
+            <div key={garage.id} className="search-result-card">
+              <strong>{garage.garageName}</strong>
+              
+              <p>Address: {garage.garageAddress}</p>
+              <p>Home City: {garage.garageHome}</p>
+              <p>Garage Specialization: {garage.garageSpecialization}</p>
+              <p>Hotline Number: {garage.garageHotline}</p>
+            </div>
+          ))}
+        </div>
+        )}
         <div className='about_us' id='About_us'>
         <h4>About Us</h4>
         <p>Welcome to Car Finder Website, your trusted platform for safeguarding your vehicle information and personal details. Our mission is to provide a secure and reliable solution for managing your vehicle records while prioritizing your privacy.</p>
@@ -189,7 +262,14 @@ function About(){
         <div className='Reviews'>
         <Comment/>
         </div>
-       
+        <div className='contact_us' id='contact_us'>
+          <hr />
+          <h4>Contact Us</h4>
+          <p>011-3245606 | 0715345670</p>
+          <p>University of Kelaniya, Dalugama, Sri Lanka</p>
+          <p>lostcarfindlk@gmail.com</p>
+          <hr />
+        </div>
     </div>
     <Footer/>
     </>

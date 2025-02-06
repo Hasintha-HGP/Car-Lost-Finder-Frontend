@@ -12,11 +12,11 @@ function Profile() {
   const [carData, setCarData] = useState([]);
   const [showUserInfo, setShowUserInfo] = useState(true);
   const [showCarInfo, setShowCarInfo] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);  // Modal state
+  const [isModalOpen, setIsModalOpen] = useState(false);  
 
   const navigate = useNavigate();
 
-  // Fetch user profile data
+  
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (!token) {
@@ -43,7 +43,7 @@ function Profile() {
       });
   }, [navigate]);
 
-  // Fetch user's car data
+  
   useEffect(() => {
     const ownerId = userData.nic; 
     if (ownerId) {
@@ -67,7 +67,7 @@ function Profile() {
     }
   }, [userData.nic, navigate]);
 
-  // Logout handler
+  
   const handleLogout = async () => {
     try {
       localStorage.removeItem('token');
@@ -80,7 +80,7 @@ function Profile() {
     }
   };
 
-  // Toggle Modal visibility
+  
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
   };
@@ -105,7 +105,7 @@ function Profile() {
           </button>   
         </div>
 
-        {/* Show user details */}
+        
         {showUserInfo && userData.name && (
           <div className="section user-details">
             <h2>My Details</h2>
@@ -122,7 +122,7 @@ function Profile() {
           </div>
         )}
 
-        {/* Show car details */}
+        
         {showCarInfo && carData.length > 0 && (
           <div className="section vehicle-details">
             <h2>My Vehicles</h2>
@@ -147,7 +147,7 @@ function Profile() {
           </div>
         )}
 
-        {/* Bottom actions */}
+        
         <div className="bottom-actions">
           <button onClick={handleLogout} className="logout">Logout</button>
           <button onClick={toggleModal} className="edit_profile">Edit Profile</button>
@@ -155,7 +155,7 @@ function Profile() {
           <button className="add_garage"><Link to='/AddGarage'>Add Garage</Link></button>
         </div>
 
-        {/* Modal for editing profile */}
+        
         {isModalOpen && <UpdateUser closeModal={toggleModal} />}
       </div>
       <Footer />

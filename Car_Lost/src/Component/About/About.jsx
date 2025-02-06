@@ -108,20 +108,27 @@ function About() {
         </div>
 
         <div className='icons'>
-          {[
-            { href: "/Addcar", text: "ADD YOUR VEHICLE", icon: <BsCarFront className='iconAdd' /> },
-            { href: "/CarStatus", text: "UPDATE VEHICLE STATUS", icon: <BsFillPinMapFill className='iconAdd' /> },
-            { onClick: handleRecentEntriesClick, text: "RECENT ENTRIES", icon: <BsBellFill className='iconAdd' /> },
-            { href: "/AddGarage", text: "ADD YOUR GARAGE", icon: <BsFillHousesFill className='iconAdd' /> }
-          ].map((item, index) => (
-            <div key={index} className='icons-item'>
-              <a href={item.href} onClick={item.onClick}>
-                <p><b>{item.text}</b></p>
-                {item.icon}
-              </a>
+           <div className='icons1'>
+            
+            <a href='/Addcar'><p><b>ADD YOUR VEHICLE</b></p></a>
+            <a href='/Addcar'>< BsCarFront  className='iconAdd'/></a>
+            </div> 
+            <div className='icons2'>
+            
+            <a href='/CarStatus'><p><b>UPDATE VEHICLE STATUS</b></p></a>
+            <a href='/CarStatus'>< BsFillPinMapFill  className='iconAdd'/></a>
             </div>
-          ))}
-        </div>
+            <div className='icons3'>
+            
+            <a onClick={handleRecentEntriesClick}><p><b>RECENT ENTRIES</b></p></a>
+            <a onClick={handleRecentEntriesClick}>< BsBellFill  className='iconAdd'/></a>
+            </div>  
+            <div className='icons3'>
+            
+            <a href='/AddGarage'><p><b>ADD YOUR GARAGE</b></p></a>
+            <a href='/AddGarage'>< BsFillHousesFill  className='iconAdd'/></a>
+            </div>  
+            </div>
 
         {showNotifications && <NotificationPanel />}
 

@@ -131,9 +131,38 @@ function About(){
       window.removeEventListener("scroll", handleScroll);
     };
     }, []);
+
+    const [scrollPercentage, setScrollPercentage] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = document.documentElement.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (scrollTop / scrollHeight) * 100;
+      setScrollPercentage(scrolled);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+  
     return(
     <>
+    
     <Navi/>
+    <div className="scroll-container">
+        <svg className="progress-ring" viewBox="0 0 100 100">
+          <circle className="progress-ring__background" cx="50" cy="50" r="40"/>
+          <circle
+            className="progress-ring__progress"
+            cx="50"
+            cy="50"
+            r="40"
+            style={{ strokeDashoffset: 251 - (251 * scrollPercentage) / 100 }}
+          />
+          <text x="50" y="55" className="progress-text">{Math.round(scrollPercentage)}%</text>
+        </svg>
+      </div>
     <div className='about'>
      <div className='imag1'>
             <img src={Traff}></img>

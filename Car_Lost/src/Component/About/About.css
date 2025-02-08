@@ -12,6 +12,38 @@
 html {
   scroll-behavior: smooth;
 }
+.scroll-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 80px;
+  height: 80px;
+  z-index: 9999;
+}
+
+
+.progress-ring__background {
+  fill: none;
+  stroke: #000000;
+  stroke-width: 6;
+}
+
+.progress-ring__progress {
+  fill: black;
+  stroke: #ffffff;
+  stroke-width: 6;
+  stroke-linecap: round;
+  stroke-dasharray: 251;
+  stroke-dashoffset: 251;
+  transition: stroke-dashoffset 0.2s;
+}
+
+.progress-text {
+  font-size: 16px;
+  font-weight: bold;
+  fill: #ffffff;
+  text-anchor: middle;
+}
 
 .aboutmain{
     

@@ -7,7 +7,7 @@ function LostVehiclePanel() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    axios.get('http://localhost:8080/lostCars') 
+    axios.get('http://13.201.14.76:8080/lostCars') 
       .then(response => {
         if (response.data.statusCode === 200) {
           setLostVehicles(response.data.cars);

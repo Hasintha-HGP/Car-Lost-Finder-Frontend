@@ -23,7 +23,7 @@ const AddGarage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:8080/registerGarage", formData); 
+      const response = await axios.post("http://13.201.14.76:8080/registerGarage", formData); 
       if (response.status === 200) {
         alert("Garage added successfully!");
         navigate("/Myprofile");

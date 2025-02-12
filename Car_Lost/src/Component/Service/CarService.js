@@ -1,7 +1,7 @@
 import axios from "axios";
 
 class CarService {
-    static BASE_URL = "http://localhost:8080/";
+    static BASE_URL = "http://13.201.14.76:8080/";
 
     // Register a new car
     static async register(carData) {

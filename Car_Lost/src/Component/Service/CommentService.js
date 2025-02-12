@@ -2,7 +2,7 @@ import axios from "axios";
 
 class CommentService{
 
-    static BASE_URL = "http://localhost:8080/";
+    static BASE_URL = "http://13.201.14.76:8080/";
     static async addReview(reviewData){
         try{
             const response=await axios.post(`${CommentService.BASE_URL}addReview`, reviewData, {

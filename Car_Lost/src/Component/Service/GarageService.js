@@ -2,7 +2,7 @@ import axios from "axios";
 
 class GarageService{
 
-    static BASE_URL = "http://localhost:8080/";
+    static BASE_URL = "http://13.201.14.76:8080/";
 
 
     static async getGarage(ownerId) {

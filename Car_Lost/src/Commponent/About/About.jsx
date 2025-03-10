@@ -127,13 +127,7 @@ function About(){
             </div> 
             <div className='icons2'>
             
-            <a href='CarStatus'><p><b>UPDATE VEHICLE STATUS</b></p></a>
-            <a href='CarStatus'>< BsFillPinMapFill  className='iconAdd'/></a>
-            </div>
-            <div className='icons3'>
-            
-            <a href='/notification'><p><b>RECENT ENTRIES</b></p></a>
-            <a href='/notification'>< BsBellFill  className='iconAdd'/></a>
+
             </div>  
             <div className='icons3'>
             

@@ -15,7 +15,9 @@ import { Route, Routes } from 'react-router-dom';
 import Login from './Commponent/Login/Login.jsx';
 import Register from './Commponent/Register/Register.jsx';
 import Footer from './Commponent/Footer/Footer.jsx';
+
 import FormPage from './Commponent/FormPage/Formpage.jsx';
+
 
 
 function App() {
@@ -33,8 +35,10 @@ function App() {
         <Route path='/Addcar' element={<AddCar/>} />
         <Route path='/AddGarage' element={<AddGarage/>} />
         <Route path='/Logout' element={<Home/>} />
+
         <Route path='/CarStatus' element={<FormPage/>} />
        
+
 
        </Routes>
     </>

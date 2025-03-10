@@ -35,7 +35,7 @@ function About(){
   useEffect(() => {
     if (!searchQuery) return; 
   
-    axios.get(`http://3.110.135.148:8080/garagesNear/${searchQuery}`)
+    axios.get(`http://localhost:8080/garagesNear/${searchQuery}`)
       .then(response => {
         if (response.data.statusCode === 200) {
           setNearGarages(response.data.garages);

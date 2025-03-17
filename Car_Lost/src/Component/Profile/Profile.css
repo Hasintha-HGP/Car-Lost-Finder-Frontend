@@ -113,6 +113,8 @@
     width: 100%;
     box-sizing: border-box;
     transition: all 0.3s ease;
+    color: white;
+    font-size: 27px;
   }
   
   .card:hover {

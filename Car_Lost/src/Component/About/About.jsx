@@ -28,8 +28,7 @@ function About(){
 
 
   const mockCities = [
-    "Kandy", "Los Angeles", "Chicago", "Houston", "Phoenix",
-    "Philadelphia", "San Antonio", "San Diego", "Dallas", "San Jose"
+    "Kandy","Colombo"
   ];
 
   useEffect(() => {

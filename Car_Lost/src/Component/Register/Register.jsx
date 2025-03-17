@@ -25,37 +25,43 @@ const navigate = useNavigate();
 
 
 
-  const handleSubmit =async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    try{
-      if (validate()) {
-      
-        const userData={...formData,role:"USER"}
-        await UserService.register(userData);
+    try {
+        if (validate()) {
+            const userData = { ...formData, role: "USER" };
 
-        localStorage.setItem('userData',JSON.stringify(userData));
-        
-        setFormData({
-          nic:'',
-          name:'',
-          sex:'',
-          job:'',
-          city:'',
-          phone:'',
-          email:'',
-          password:'',
-          role:''
-          
-        });
-        alert("User Registered Successfully");
-        navigate('/Login');
-      }
-  }catch(error){
+            // Call the register function from the UserService
+            const response = await UserService.register(userData);
 
-        console.error('Error Registering User',error);
-        alert('An error occcured while registering user');
-  }
-  };
+            // Assuming the response from the backend has a status code and message
+            if (response.statusCode === 400) {
+                // Display the error message (e.g., "Email already exists")
+                alert(response.message || 'Email Already Exists. Try a different one.');
+            } else {
+                // If registration is successful, store user data and reset the form
+                localStorage.setItem('userData', JSON.stringify(userData));
+                setFormData({
+                    nic: '',
+                    name: '',
+                    sex: '',
+                    job: '',
+                    city: '',
+                    phone: '',
+                    email: '',
+                    password: '',
+                    role: ''
+                });
+                alert("User Registered Successfully");
+                navigate('/Login');
+            }
+        }
+    } catch (error) {
+        console.error('Error Registering User:', error);
+        alert('Email Already Exists. Try a different one.');
+    }
+};
+
 
 
   const [errors, setErrors] = useState({});
@@ -71,6 +77,12 @@ const navigate = useNavigate();
     if (!/^[0-9]{10}$/.test(formData.phone)) {
       errors.phone = 'Phone number must be exactly 10 digits';
     }
+
+    // Validate password security
+    if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+={}\[\]:;"'<>,.?/~`|\\-])[A-Za-z\d!@#$%^&*()_+={}\[\]:;"'<>,.?/~`|\\-]{8,}$/.test(formData.password)) {
+      errors.password = 'Password must be at least 8 characters, include an uppercase letter, a lowercase letter, a number, and a special character.';
+    }
+  
 
     // Validate confirm password
     if (formData.password !== formData.confirmPassword) {

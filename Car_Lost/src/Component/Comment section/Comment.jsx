@@ -48,7 +48,7 @@ function CommentSection() {
         setNewComment("");
         textareaRef.current.focus();
   
-        // ✅ Refresh the page after successfully adding the comment
+        
         window.location.reload();
       } catch (error) {
         console.error("Error adding comment:", error);

@@ -20,9 +20,9 @@ const FormPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validate status field
+    
     if (formData.status !== "LOST" && formData.status !== "FOUND") {
-      alert('Please enter a valid status: "Lost" or "Found"');
+      alert('Please enter a valid status: "LOST" or "FOUND"');
       return;
     }
 

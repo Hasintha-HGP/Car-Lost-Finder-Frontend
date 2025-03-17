@@ -100,6 +100,8 @@ function Profile() {
       localStorage.removeItem('rememberMe')
       localStorage.removeItem('carData')
       localStorage.removeItem('carDetails')
+      localStorage.removeItem('garageDetails')
+      localStorage.removeItem('userData')
       navigate('/Logout');
     } catch (error) {
       console.error('Logout failed:', error);
@@ -119,10 +121,12 @@ function Profile() {
           <div className="user-info">
             <h1>{userData.name}</h1>
             <p>{userData.job}</p>
+            
           </div>
         </div>
 
         <div className="actions">
+        <button onClick={handleLogout} className="logout">Logout</button>
           <button onClick={() => setShowUserInfo(!showUserInfo)} className="btnprofile">
             {showUserInfo ? "Hide My Details" : "Show My Details"}
           </button>
@@ -141,10 +145,10 @@ function Profile() {
             <div className="card">
               <table cellSpacing={10}>
                 <tbody>
-                  <tr><td><strong>Email:</strong></td><td>{userData.email}</td></tr>
-                  <tr><td><strong>Phone:</strong></td><td>{userData.phone}</td></tr>
-                  <tr><td><strong>NIC:</strong></td><td>{userData.nic}</td></tr>
-                  <tr><td><strong>City:</strong></td><td>{userData.city}</td></tr>
+                  <tr><td><strong>Email</strong></td><td>:</td><td>&nbsp;&nbsp;{userData.email}</td></tr>
+                  <tr><td><strong>Phone</strong></td><td>:</td><td>&nbsp;&nbsp;{userData.phone}</td></tr>
+                  <tr><td><strong>NIC</strong></td><td>:</td><td>&nbsp;&nbsp;{userData.nic}</td></tr>
+                  <tr><td><strong>City</strong></td><td>:</td><td>&nbsp;&nbsp;{userData.city}</td></tr>
                 </tbody>
               </table>
             </div>
@@ -160,12 +164,18 @@ function Profile() {
                 {carData.map((vehicle) => (
                   <div key={vehicle.id} className="card vehicle-card">
                     <div className="vehicle-info">
-                      <p><strong>Vehicle Number:</strong> {vehicle.vehicleNumber}</p>
-                      <p><strong>Brand:</strong> {vehicle.brand}</p>
-                      <p><strong>Model:</strong> {vehicle.model}</p>
-                      <p><strong>Produced Year:</strong> {vehicle.producedYear}</p>
-                      <p><strong>Transmission:</strong> {vehicle.transmission}</p>
-                      <p><strong>Vehicle Status:</strong> {vehicle.status}</p>
+                      
+
+                      <table cellSpacing={10}>
+                <tbody>
+                  <tr><td><strong>Vehicle Number</strong></td><td>:</td><td>&nbsp;&nbsp;{vehicle.vehicleNumber}</td></tr>
+                  <tr><td><strong>Brand</strong></td><td>:</td><td>&nbsp;&nbsp;{vehicle.brand}</td></tr>
+                  <tr><td><strong>Model</strong></td><td>:</td><td>&nbsp;&nbsp;{vehicle.model}</td></tr>
+                  <tr><td><strong>Produced Year</strong></td><td>:</td><td>&nbsp;&nbsp;{vehicle.producedYear}</td></tr>
+                  <tr><td><strong>Transmission</strong></td><td>:</td><td>&nbsp;&nbsp;{vehicle.transmission}</td></tr>
+                  <tr><td><strong>Vehicle Status</strong></td><td>:</td><td>&nbsp;&nbsp;{vehicle.status}</td></tr>
+                </tbody>
+              </table>
                     </div>
                   </div>
                 ))}
@@ -184,11 +194,15 @@ function Profile() {
                 {garageData.map((garage1) => (
                   <div key={garage1.id || `${garage1.garageName}-${garage1.garageAddress}`} className="card vehicle-card">
                   <div className="vehicle-info">
-                  <p><strong>Garage Name:</strong> {garage1.garageName}</p>
-                  <p><strong>Address:</strong> {garage1.garageAddress}</p>
-                  <p><strong>Home Town:</strong> {garage1.garageHome}</p>
-                  <p><strong>Specialization :</strong> {garage1.garageSpecialization}</p>
-                  <p><strong>Hotline :</strong> {garage1.garageHotline}</p>
+                  <table cellSpacing={10}>
+                <tbody>
+                  <tr><td><strong>Garage Name</strong></td><td>:</td><td>&nbsp;&nbsp;{garage1.garageName}</td></tr>
+                  <tr><td><strong>Address</strong></td><td>:</td><td>&nbsp;&nbsp;{garage1.garageAddress}</td></tr>
+                  <tr><td><strong>Home Town</strong></td><td>:</td><td>&nbsp;&nbsp;{garage1.garageHome}</td></tr>
+                  <tr><td><strong>Specialization</strong></td><td>:</td><td>&nbsp;&nbsp;{garage1.garageSpecialization}</td></tr>
+                  <tr><td><strong>Hotline</strong></td><td>:</td><td>&nbsp;&nbsp;{garage1.garageHotline}</td></tr>
+                </tbody>
+              </table>
                 </div>
               </div>
             ))}
@@ -202,7 +216,7 @@ function Profile() {
 
         {/* Bottom actions */}
         <div className="bottom-actions">
-          <button onClick={handleLogout} className="logout">Logout</button>
+          {/*<button onClick={handleLogout} className="logout">Delete Car</button>*/}
           <button onClick={toggleModal} className="edit_profile">Edit Profile</button>
           <button className="add_car"><Link to='/Addcar'>Add Car</Link></button>
           <button className="add_garage"><Link to='/AddGarage'>Add Garage</Link></button>

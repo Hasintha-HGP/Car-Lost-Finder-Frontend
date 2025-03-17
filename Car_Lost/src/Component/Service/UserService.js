@@ -1,7 +1,7 @@
 import axios from "axios";
 
 class UserService {
-    static BASE_URL = "http://localhost:8080";
+    static BASE_URL = "3.110.149.19";
 
     static getToken() {
         return localStorage.getItem("token");
